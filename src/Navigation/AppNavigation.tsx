@@ -4,20 +4,17 @@ import Home from '../Srceens/Home';
 import AboutMe from '../Srceens/AboutMe';
 import Projects from '../Srceens/Projects';
 import ContactMe from '../Srceens/ContactMe';
-import {Text, useWindowDimensions, View} from 'react-native';
 import TabBar from '../Components/TabBar';
 import NotFound from '../Srceens/NotFound';
-import MobileMenu from '../Components/MobileMenu';
 
 const AppNavigation = () => {
   const Stack = createNativeStackNavigator();
-  const layout = useWindowDimensions();
 
   return (
     <>
       <TabBar.TopBar />
       <Stack.Navigator
-        initialRouteName="About-Me"
+        initialRouteName="Home"
         screenOptions={{
           headerShown: false,
           statusBarAnimation: 'none',
@@ -44,8 +41,6 @@ const AppNavigation = () => {
           options={{title: 'NotFound'}}
         />
       </Stack.Navigator>
-
-      {/* {layout.width >= 768 && <TabBar.BottomBar />} */}
       <TabBar.BottomBar />
     </>
   );

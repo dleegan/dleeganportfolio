@@ -13,6 +13,7 @@ import Images from '../../../Assets/Images';
 import Colors from '../../../Assets/Styles/Colors';
 import Collapser from '../../../Components/Collapser';
 import Image from '../../../Components/Image';
+import ItemSelection from '../../../Components/ItemSelection';
 import Text from '../../../Components/Text';
 
 let ContactInfo = [
@@ -47,45 +48,9 @@ const Section1 = () => {
         },
       ]}>
       <Collapser
-        childrenTitle={
-          <View
-            style={{
-              borderBottomWidth: 1,
-              borderBottomColor: Colors.defaultBorder,
-              padding: 10,
-              flexDirection: 'row',
-              alignItems: 'center',
-            }}>
-            <Image
-              source={Images.triangle_right}
-              style={{
-                height: 15,
-                width: 15,
-                tintColor: '#fff',
-              }}
-            />
-            <Text style={{marginLeft: 5}}>contacts</Text>
-          </View>
-        }
+        childrenTitle={<ItemSelection title={'contacts'} isSelected={false} />}
         childrenTitleSelected={
-          <View
-            style={{
-              borderBottomWidth: 1,
-              borderBottomColor: Colors.defaultBorder,
-              padding: 10,
-              flexDirection: 'row',
-              alignItems: 'center',
-            }}>
-            <Image
-              source={Images.triangle_down}
-              style={{
-                height: 15,
-                width: 15,
-                tintColor: '#fff',
-              }}
-            />
-            <Text style={{marginLeft: 5}}>contacts</Text>
-          </View>
+          <ItemSelection title={'contacts'} isSelected={true} />
         }
         style={{}}
         hoverInStyles={{}}>
@@ -120,44 +85,10 @@ const Section1 = () => {
 
       <Collapser
         childrenTitle={
-          <View
-            style={{
-              borderBottomWidth: 1,
-              borderBottomColor: Colors.defaultBorder,
-              padding: 10,
-              flexDirection: 'row',
-              alignItems: 'center',
-            }}>
-            <Image
-              source={Images.triangle_right}
-              style={{
-                height: 15,
-                width: 15,
-                tintColor: '#fff',
-              }}
-            />
-            <Text style={{marginLeft: 5}}>find-me-also-in</Text>
-          </View>
+          <ItemSelection title={'find-me-also-in'} isSelected={false} />
         }
         childrenTitleSelected={
-          <View
-            style={{
-              borderBottomWidth: 1,
-              borderBottomColor: Colors.defaultBorder,
-              padding: 10,
-              flexDirection: 'row',
-              alignItems: 'center',
-            }}>
-            <Image
-              source={Images.triangle_down}
-              style={{
-                height: 15,
-                width: 15,
-                tintColor: '#fff',
-              }}
-            />
-            <Text style={{marginLeft: 5}}>find-me-also-in</Text>
-          </View>
+          <ItemSelection title={'cofind-me-also-inntacts'} isSelected={true} />
         }
         style={{}}
         hoverInStyles={{}}>

@@ -26,7 +26,7 @@ let Screens = [
 ];
 
 const MobileMenu: React.FC<Props> = ({action, visible}: Props) => {
-  const navigation = useNavigation();
+  // const navigation = useNavigation();
 
   return (
     <Modal animationType="none" transparent={false} visible={visible}>
@@ -72,7 +72,7 @@ const MobileMenu: React.FC<Props> = ({action, visible}: Props) => {
                     <TouchableOpacity
                       onPress={() => {
                         // @ts-ignore
-                        navigation.navigate(item.screen);
+                        // navigation.navigate(item.screen);
                         action();
                       }}>
                       <Text

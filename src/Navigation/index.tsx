@@ -1,8 +1,7 @@
-import React, {useContext} from 'react';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
-import {StatusBar, Text} from 'react-native';
 import AppNavigation from './AppNavigation';
+import {navigationRef} from '../Utils/Functions/RootNavigation';
 
 const config = {
   screens: {
@@ -25,7 +24,7 @@ const linking = {
 const NavigationRoot = () => {
   return (
     // <NavigationContainer linking={linking} fallback={<Text>Loading...</Text>}>
-    <NavigationContainer>
+    <NavigationContainer ref={navigationRef}>
       <AppNavigation />
     </NavigationContainer>
   );

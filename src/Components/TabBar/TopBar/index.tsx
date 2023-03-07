@@ -1,8 +1,10 @@
 import {
   NavigationContainerRefContext,
   useNavigation,
+  useNavigationContainerRef,
+  useRoute,
 } from '@react-navigation/native';
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   View,
   TouchableOpacity,
@@ -11,12 +13,12 @@ import {
 } from 'react-native';
 import Images from '../../../Assets/Images';
 import Colors from '../../../Assets/Styles/Colors';
+import * as RootNavigation from '../../../Utils/Functions/RootNavigation';
 import AppImage from '../../Image';
 import MobileMenu from '../../MobileMenu';
 import Text from '../../Text';
 import styles from '../styles';
-
-let ItemColors = ['red', 'yellow', 'green'];
+// import * as RootNavigation from '../Utils/Functions/RootNavigation';
 
 let Screens = [
   {title: '_hello', screen: 'Home'},
@@ -25,9 +27,14 @@ let Screens = [
 ];
 
 const TopBar = () => {
-  const navigation = useNavigation();
-  console.log('route', navigation);
   const layout = useWindowDimensions();
+  const [currentRoute, setCurrentRoutefirst] = useState<String>('');
+
+  RootNavigation.navigationRef.addListener('state', e => {
+    console.log('addListener');
+
+    setCurrentRoutefirst(RootNavigation.getCurrentRoute().name);
+  });
 
   if (layout.width < 768) {
     const [modalVisible, setModalVisible] = useState(false);
@@ -65,6 +72,7 @@ const TopBar = () => {
       </>
     );
   }
+  console.log(currentRoute);
 
   return (
     <View style={styles.tabBarContainer}>
@@ -84,20 +92,31 @@ const TopBar = () => {
           Screens.map((item: any, _index: number) => {
             return (
               <View
-                style={{
-                  borderRightWidth: 1,
-                  borderColor: Colors.defaultBorder,
-                }}>
+                style={[
+                  {
+                    borderRightWidth: 1,
+                    borderColor: Colors.defaultBorder,
+                  },
+                  // currentRoute?.includes(item.screen) && {
+                  //   borderBottomWidth: 3,
+                  //   borderBottomColor: '#FEA55F',
+                  // },
+                ]}>
                 <TouchableOpacity
                   style={{paddingHorizontal: 30, paddingVertical: 20}}
                   onPress={() => {
                     // @ts-ignore
-                    navigation.navigate(item.screen);
+                    RootNavigation.navigate(item.screen);
                   }}>
                   <Text
-                    style={{
-                      color: '#607B96',
-                    }}>
+                    style={[
+                      {
+                        color: '#607B96',
+                      },
+                      currentRoute?.includes(item.screen) && {
+                        color: 'white',
+                      },
+                    ]}>
                     {item.title}
                   </Text>
                 </TouchableOpacity>
@@ -109,22 +128,33 @@ const TopBar = () => {
 
       <View style={{flex: 1, alignItems: 'flex-end'}}>
         <View
-          style={{
-            borderLeftWidth: 1,
-            borderColor: Colors.defaultBorder,
-          }}>
+          style={[
+            {
+              borderLeftWidth: 1,
+              borderLeftColor: Colors.defaultBorder,
+            },
+            // currentRoute?.includes('Contact-Me') && {
+            //   borderBottomWidth: 3,
+            //   borderBottomColor: '#FEA55F',
+            // },
+          ]}>
           <TouchableOpacity
             style={{
               padding: 20,
             }}
             onPress={() => {
               // @ts-ignore
-              navigation.navigate('Contact-Me');
+              RootNavigation.navigate('Contact-Me');
             }}>
             <Text
-              style={{
-                color: '#607B96',
-              }}>
+              style={[
+                {
+                  color: '#607B96',
+                },
+                currentRoute?.includes('Contact-Me') && {
+                  color: 'white',
+                },
+              ]}>
               _contact-me
             </Text>
           </TouchableOpacity>

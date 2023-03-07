@@ -13,6 +13,7 @@ import Images from '../../../Assets/Images';
 import Colors from '../../../Assets/Styles/Colors';
 import Collapser from '../../../Components/Collapser';
 import Image from '../../../Components/Image';
+import ItemSelection from '../../../Components/ItemSelection';
 import Text from '../../../Components/Text';
 import TreeCollapser from '../../../Components/TreeCollapser';
 
@@ -62,44 +63,10 @@ const Section1 = () => {
       ]}>
       <Collapser
         childrenTitle={
-          <View
-            style={{
-              borderBottomWidth: 1,
-              borderBottomColor: Colors.defaultBorder,
-              padding: 10,
-              flexDirection: 'row',
-              alignItems: 'center',
-            }}>
-            <Image
-              source={Images.triangle_right}
-              style={{
-                height: 15,
-                width: 15,
-                tintColor: '#fff',
-              }}
-            />
-            <Text style={{marginLeft: 5}}>personal-info</Text>
-          </View>
+          <ItemSelection title={'personal-info'} isSelected={false} />
         }
         childrenTitleSelected={
-          <View
-            style={{
-              borderBottomWidth: 1,
-              borderBottomColor: Colors.defaultBorder,
-              padding: 10,
-              flexDirection: 'row',
-              alignItems: 'center',
-            }}>
-            <Image
-              source={Images.triangle_down}
-              style={{
-                height: 15,
-                width: 15,
-                tintColor: '#fff',
-              }}
-            />
-            <Text style={{marginLeft: 5}}>personal-info</Text>
-          </View>
+          <ItemSelection title={'personal-info'} isSelected={true} />
         }
         style={{}}
         hoverInStyles={{}}>
@@ -108,44 +75,10 @@ const Section1 = () => {
 
       <Collapser
         childrenTitle={
-          <View
-            style={{
-              borderBottomWidth: 1,
-              borderBottomColor: Colors.defaultBorder,
-              padding: 10,
-              flexDirection: 'row',
-              alignItems: 'center',
-            }}>
-            <Image
-              source={Images.triangle_right}
-              style={{
-                height: 15,
-                width: 15,
-                tintColor: '#fff',
-              }}
-            />
-            <Text style={{marginLeft: 5}}>find-me-also-in</Text>
-          </View>
+          <ItemSelection title={'find-me-also-in'} isSelected={false} />
         }
         childrenTitleSelected={
-          <View
-            style={{
-              borderBottomWidth: 1,
-              borderBottomColor: Colors.defaultBorder,
-              padding: 10,
-              flexDirection: 'row',
-              alignItems: 'center',
-            }}>
-            <Image
-              source={Images.triangle_down}
-              style={{
-                height: 15,
-                width: 15,
-                tintColor: '#fff',
-              }}
-            />
-            <Text style={{marginLeft: 5}}>find-me-also-in</Text>
-          </View>
+          <ItemSelection title={'find-me-also-in'} isSelected={true} />
         }
         style={{}}
         hoverInStyles={{}}>
