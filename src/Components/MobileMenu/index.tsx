@@ -11,7 +11,7 @@ import Text from '../Text';
 import Colors from '../../Assets/Styles/Colors';
 import Images from '../../Assets/Images';
 import Image from '../Image';
-import {useNavigation} from '@react-navigation/native';
+import * as RootNavigation from '../../Utils/Functions/RootNavigation';
 
 type Props = {
   action: Function;
@@ -26,8 +26,6 @@ let Screens = [
 ];
 
 const MobileMenu: React.FC<Props> = ({action, visible}: Props) => {
-  // const navigation = useNavigation();
-
   return (
     <Modal animationType="none" transparent={false} visible={visible}>
       <View style={{flex: 1, padding: 10, backgroundColor: '#010C15'}}>
@@ -72,7 +70,7 @@ const MobileMenu: React.FC<Props> = ({action, visible}: Props) => {
                     <TouchableOpacity
                       onPress={() => {
                         // @ts-ignore
-                        // navigation.navigate(item.screen);
+                        RootNavigation.navigate(item.screen);
                         action();
                       }}>
                       <Text

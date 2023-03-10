@@ -3,7 +3,7 @@ import {View, TouchableOpacity, StyleSheet, Linking} from 'react-native';
 import {Font, FontFamily} from '../../Assets/Fonts';
 import Colors from '../../Assets/Styles/Colors';
 import TextLink from '../../Components/Buttons/TextLink';
-import TabBar from '../../Components/TabBar/TopBar';
+import TabBar from '../../Components/TabBar/BottomBar/TopBar';
 import Text from '../../Components/Text';
 import Links from '../../Utils/Links';
 

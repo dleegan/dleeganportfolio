@@ -21,11 +21,12 @@ const Section2 = () => {
       style={[
         layout.width >= 768 && {
           flex: 1,
-          alignSelf: 'center',
           width: '42%',
+          borderRightWidth: 1,
+          borderColor: Colors.defaultBorder,
         },
       ]}>
-      <View style={{flex: 1, padding: 30, alignContent: 'center'}}></View>
+      <Text>test</Text>
     </View>
   );
 };

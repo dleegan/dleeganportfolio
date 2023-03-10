@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
-import TabBar from '../../Components/TabBar/TopBar';
+import TabBar from '../../Components/TabBar/BottomBar/TopBar';
 import Colors from '../../Assets/Styles/Colors';
 import Card from '../../Components/Cards';
 
