@@ -1,16 +1,16 @@
-import {StyleSheet} from 'react-native/types';
+import {StyleSheet} from 'react-native';
 
 export const webStyles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 30,
-    backgroundColor: '#010C15',
-  },
-  terminal: {
-    flex: 1,
     backgroundColor: '#011627',
-    borderRadius: 8,
-    borderWidth: 1,
-    borderColor: '#1E2D3D',
+    flexDirection: 'row',
   },
+  screenTitle: {
+    padding: 0,
+    fontSize: 0,
+  },
+  //Section 1
+  //Section 2
+  //Section 3
 });

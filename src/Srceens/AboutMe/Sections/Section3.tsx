@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useCallback, useEffect, useRef, useState} from 'react';
 import {
   View,
   TouchableOpacity,
@@ -18,29 +18,43 @@ import Text from '../../../Components/Text';
 const Section3 = () => {
   const [text, onChangeText] = useState<string>('');
   const [userCmd, setUserCmd] = useState<string[]>([]);
-  const refInput = useRef(null);
+  const refInput = useRef<TextInput>(null);
   const layout = useWindowDimensions();
 
-  useEffect(() => {
-    refInput?.current.focus();
-    console.log('useEffect');
-
-    return () => {};
-  }, [userCmd]);
+  const keyPressEvent = async (e: any) => {
+    if (e.key === 'Enter' && text) {
+      onChangeText('');
+      setUserCmd(prev => [text, ...prev]);
+      setTimeout(() => {
+        refInput?.current && refInput?.current.focus();
+      }, 100);
+    }
+  };
 
   return (
-    <View style={[layout.width >= 768 && {width: '42%'}, {padding: 10}]}>
+    <View style={[layout.width >= 768 && {width: '42%'}]}>
       <FlatList
         data={userCmd}
         renderItem={({item}) => (
-          <View>
+          <View
+            style={{
+              borderTopWidth: 1,
+              borderColor: Colors.defaultBorder,
+              padding: 10,
+            }}>
             <Text>{item}</Text>
           </View>
         )}
         inverted
-        keyExtractor={item => item}
+        keyExtractor={item => `item-${Math.random()}`}
       />
-      <View style={{flexDirection: 'row'}}>
+      <View
+        style={{
+          flexDirection: 'row',
+          padding: 10,
+          borderTopWidth: 1,
+          borderColor: Colors.defaultBorder,
+        }}>
         <Text>~/ git:(main)</Text>
         <TextInput
           ref={refInput}
@@ -54,15 +68,11 @@ const Section3 = () => {
               outlineWidth: 0,
             },
           ]}
+          autoFocus={true}
           value={text}
           onChangeText={onChangeText}
-          // autoFocus={true}
           keyboardType="default"
-          onSubmitEditing={e => {
-            setUserCmd(prev => [e.nativeEvent.text, ...prev]);
-            onChangeText('');
-            // refInput.clear();
-          }}
+          onKeyPress={keyPressEvent}
         />
       </View>
     </View>

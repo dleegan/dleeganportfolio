@@ -49,11 +49,38 @@ export const mobileStyles = StyleSheet.create({
 
   //all
   ['bottomBar-container']: {
+    borderTopWidth: 1,
+    borderTopColor: Colors.defaultBorder,
     flexDirection: 'row',
     alignItems: 'center',
-    // paddingHorizontal: 20,
-    borderTopWidth: 1,
-    borderColor: '#1E2D3D',
-    width: '100%',
+    justifyContent: 'flex-end',
+  },
+
+  ['bottomBar-leftContainer']: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    width: 'auto',
+  },
+
+  ['bottomBar-leftContent']: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'flex-start',
+  },
+
+  ['bottomBar-leftIconContent']: {
+    flexDirection: 'row',
+    borderRightWidth: 0,
+  },
+
+  ['bottomBar-leftBorder']: {
+    borderLeftWidth: 1,
+    borderColor: Colors.defaultBorder,
+  },
+
+  ['bottomBar-leftText']: {
+    display: 'none',
   },
 });

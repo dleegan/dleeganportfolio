@@ -1,35 +1,20 @@
-import React, {useState} from 'react';
-import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
-import TabBar from '../../Components/TabBar/BottomBar/TopBar';
-import Colors from '../../Assets/Styles/Colors';
+import React from 'react';
+import {View, useWindowDimensions} from 'react-native';
 import Card from '../../Components/Cards';
+import Section1 from './Sections/Section1';
+import {responsiveStyle} from './Styles';
 
 const Projects = () => {
+  const layout = useWindowDimensions();
+  const styles = responsiveStyle(layout);
+
   return (
-    <View style={styles.container}>
+    <View style={styles('container')}>
+      <Section1 />
       <Card.ItemCard />
       <Card.ItemCard />
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 30,
-    backgroundColor: Colors.defaultBG,
-    flexDirection: 'row',
-    rowGap: 20,
-    columnGap: 20,
-    gap: 20,
-  },
-  terminal: {
-    flex: 1,
-    backgroundColor: '#011627',
-    borderRadius: 8,
-    borderWidth: 1,
-    borderColor: '#1E2D3D',
-  },
-});
 
 export default Projects;

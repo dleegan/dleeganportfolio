@@ -54,12 +54,40 @@ export const webStyles = StyleSheet.create({
 
   //all
   ['bottomBar-container']: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    // paddingHorizontal: 20,
     borderTopWidth: 1,
-    borderColor: '#1E2D3D',
-    // width: '100%',
+    borderTopColor: Colors.defaultBorder,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+
+  ['bottomBar-leftContainer']: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    width: '16%',
+    justifyContent: 'space-between',
+  },
+
+  ['bottomBar-leftContent']: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+
+  ['bottomBar-leftIconContent']: {
+    flexDirection: 'row',
+    borderRightWidth: 1,
+    borderColor: Colors.defaultBorder,
+  },
+
+  ['bottomBar-leftBorder']: {
+    borderLeftWidth: 1,
+    borderColor: Colors.defaultBorder,
+  },
+
+  ['bottomBar-leftText']: {
+    display: 'flex',
+    color: '#607B96',
+    marginRight: 5,
   },
 });
