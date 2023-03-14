@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, useWindowDimensions} from 'react-native';
-import Card from '../../Components/Cards';
 import Section1 from './Sections/Section1';
+import Section2 from './Sections/Section2';
 import {responsiveStyle} from './Styles';
 
 const Projects = () => {
@@ -11,8 +11,7 @@ const Projects = () => {
   return (
     <View style={styles('container')}>
       <Section1 />
-      <Card.ItemCard />
-      <Card.ItemCard />
+      <Section2 />
     </View>
   );
 };

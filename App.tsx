@@ -22,7 +22,7 @@ const responsiveStyle = CreateResponsiveStyle(
   {
     container: {
       flex: 1,
-      padding: 30,
+      padding: 20,
       backgroundColor: '#010C15',
     },
     terminal: {

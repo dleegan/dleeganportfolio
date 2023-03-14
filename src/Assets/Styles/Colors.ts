@@ -3,6 +3,7 @@ const VscodeColor = {
   VSCodeVariableName: '#B1B7C2',
   VSCodeOperatorName: '#B1B7C2',
   VSCodeValueString: '#A1C181',
+  VSCodeComment: '#607B96',
 };
 
 const DefaultColor = {

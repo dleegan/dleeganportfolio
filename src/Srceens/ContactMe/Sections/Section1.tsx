@@ -88,7 +88,7 @@ const Section1 = () => {
           <ItemSelection title={'find-me-also-in'} isSelected={false} />
         }
         childrenTitleSelected={
-          <ItemSelection title={'cofind-me-also-inntacts'} isSelected={true} />
+          <ItemSelection title={'find-me-also-in'} isSelected={true} />
         }
         style={{}}
         hoverInStyles={{}}>
