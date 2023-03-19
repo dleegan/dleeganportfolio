@@ -14,7 +14,7 @@ const AppNavigation = () => {
     <>
       <TabBar.TopBar />
       <Stack.Navigator
-        initialRouteName="About-Me"
+        initialRouteName="Home"
         screenOptions={{
           headerShown: false,
           statusBarAnimation: 'none',

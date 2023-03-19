@@ -1,13 +1,23 @@
 import React from 'react';
-import {StyleProp, Image, ImageProps} from 'react-native';
+import {StyleProp, Image, ImageProps, Animated} from 'react-native';
 
 type Props = {
   source: string;
   // style?: StyleProp<ImageProps>;
   style?: any;
+  animated?: boolean;
 };
 
-const AppImage = ({source, style}: Props) => {
+const AppImage = ({source, style, animated = false}: Props) => {
+  if (animated)
+    return (
+      <Animated.Image
+        // @ts-ignore
+        source={source}
+        style={[style]}
+      />
+    );
+
   return (
     <Image
       // @ts-ignore

@@ -16,37 +16,28 @@ import Image from '../../../Components/Image';
 import ItemSelection from '../../../Components/ItemSelection';
 import Text from '../../../Components/Text';
 import TreeCollapser from '../../../Components/TreeCollapser';
-
-let ContactInfo = [
-  {
-    icon: Images.mail,
-    action: () => Linking.openURL(`mailto:leegandupros@gmail.com`),
-    title: 'leegandupros@gmail.com',
-  },
-  {
-    icon: Images.phone,
-    action: () => Linking.openURL(`tel:+33767348080`),
-    title: '+33767348080',
-  },
-];
+import Links from '../../../Utils/Links';
 
 let findMeLinks = [
-  {action: '', title: 'Facebook'},
-  {action: '', title: 'Instagram'},
+  {
+    action: () => Linking.openURL(Links.facebook),
+    title: 'Facebook',
+  },
+  {
+    action: () => Linking.openURL(Links.instagram),
+    title: 'Instagram',
+  },
 ];
 
-let dataSchema = {
-  title: 'personal-info',
-  items: [
-    {title: 'bio'},
-    {title: 'education'},
-    {title: 'professional-exp'},
-    {
-      title: 'interests',
-      items: [{title: 'nothing'}, {title: 'stupide-things'}],
-    },
-  ],
-};
+let dataSchema = [
+  {fileName: 'bio'},
+  {fileName: 'education'},
+  {fileName: 'professional-exp'},
+  {
+    folderName: 'interests',
+    content: [{fileName: 'nothing'}, {fileName: 'stupide-things'}],
+  },
+];
 
 const Section1 = () => {
   const [text, onChangeText] = useState('');
@@ -70,7 +61,14 @@ const Section1 = () => {
         }
         style={{}}
         hoverInStyles={{}}>
-        <TreeCollapser.CSub data={dataSchema} />
+        <View
+          style={{
+            paddingBottom: 10,
+            borderBottomWidth: 1,
+            borderBottomColor: Colors.defaultBorder,
+          }}>
+          <TreeCollapser data={dataSchema} />
+        </View>
       </Collapser>
 
       <Collapser
@@ -84,13 +82,15 @@ const Section1 = () => {
         hoverInStyles={{}}>
         <View
           style={{
-            paddingHorizontal: 10,
+            paddingHorizontal: 20,
             paddingBottom: 10,
           }}>
           {React.Children.toArray(
             findMeLinks.map((item: any, _index: number) => {
               return (
-                <TouchableOpacity style={{flexDirection: 'row', marginTop: 10}}>
+                <TouchableOpacity
+                  style={{flexDirection: 'row', marginTop: 10}}
+                  onPress={() => item.action()}>
                   <Image
                     source={Images.link}
                     style={{

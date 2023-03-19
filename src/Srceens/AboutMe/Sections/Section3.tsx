@@ -14,17 +14,28 @@ import {FontFamily} from '../../../Assets/Fonts';
 import Colors from '../../../Assets/Styles/Colors';
 import Collapser from '../../../Components/Collapser';
 import Text from '../../../Components/Text';
+import {commandesInterpretor} from '../../../Utils/Functions/TermCommands';
+
+type CommandeResult = {
+  path: string;
+  cmd: string;
+  result: string;
+};
 
 const Section3 = () => {
   const [text, onChangeText] = useState<string>('');
-  const [userCmd, setUserCmd] = useState<string[]>([]);
+  const [userCmd, setUserCmd] = useState<CommandeResult[]>([]);
   const refInput = useRef<TextInput>(null);
   const layout = useWindowDimensions();
 
   const keyPressEvent = async (e: any) => {
     if (e.key === 'Enter' && text) {
       onChangeText('');
-      setUserCmd(prev => [text, ...prev]);
+      let result = commandesInterpretor(text);
+      setUserCmd(prev => [
+        {path: '~/ git:(main)', cmd: text, result: result},
+        ...prev,
+      ]);
       setTimeout(() => {
         refInput?.current && refInput?.current.focus();
       }, 100);
@@ -42,11 +53,13 @@ const Section3 = () => {
               borderColor: Colors.defaultBorder,
               padding: 10,
             }}>
-            <Text>{item}</Text>
+            <Text>{item.path}</Text>
+            <Text>{item.cmd}</Text>
+            <Text>{item.result}</Text>
           </View>
         )}
         inverted
-        keyExtractor={item => `item-${Math.random()}`}
+        keyExtractor={_item => `item-${Math.random()}`}
       />
       <View
         style={{
@@ -65,6 +78,7 @@ const Section3 = () => {
               color: '#607B96',
               width: 'auto',
               marginLeft: 10,
+              //@ts-ignore
               outlineWidth: 0,
             },
           ]}

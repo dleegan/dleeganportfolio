@@ -33,7 +33,7 @@ const Section2 = () => {
             gap: 30,
           },
         ]}>
-        {[...Array(10)].map((item: any, index: number) => (
+        {[...Array(10)].map((_item: any, _index: number) => (
           <Cards.ItemCard />
         ))}
       </View>

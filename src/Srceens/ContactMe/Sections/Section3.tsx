@@ -15,11 +15,11 @@ import Text from '../../../Components/Text';
 const Section3 = () => {
   const [text, onChangeText] = useState('');
   const layout = useWindowDimensions();
+  const hrefAttrs = {download: true, rel: 'nofollow', target: 'blank'};
 
   return (
-    <View
-      style={[layout.width >= 768 && {width: '42%'}, {backgroundColor: 'red'}]}>
-      <Text>ContactMe</Text>
+    <View style={[layout.width >= 768 && {width: '42%'}]}>
+      <Text>ContactMsse</Text>
     </View>
   );
 };

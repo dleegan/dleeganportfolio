@@ -25,6 +25,10 @@ const Images = {
   twitch: 'images/social-media/twitch-mono.png',
   twitter: 'images/social-media/twitter-mono.png',
   youtube: 'images/social-media/youtube-mono.png',
+
+  //EFFECTS
+  blue_bg: 'images/effects/blue-background.png',
+  green_bg: 'images/effects/green-background.png',
 };
 
 export default Images;

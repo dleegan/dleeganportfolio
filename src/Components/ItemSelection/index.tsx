@@ -22,7 +22,9 @@ const ItemSelection: React.FC<Props> = ({title, isSelected}: Props) => {
         source={isSelected ? Images.triangle_down : Images.triangle_right}
         style={styles('iconStyle')}
       />
-      <Text style={{marginLeft: 5}}>{title}</Text>
+      <Text style={{marginLeft: 5}} numberOfLines={1}>
+        {title}
+      </Text>
     </View>
   );
 };
