@@ -1,13 +1,19 @@
 import React, {useState} from 'react';
 import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
-import TabBar from '../../Components/TabBar/BottomBar/TopBar';
 import Colors from '../../Assets/Styles/Colors';
 import Card from '../../Components/Cards';
+import StatusCodeContext from '../../../statusCode';
 
 const NotFound = () => {
+  const status = React.useContext(StatusCodeContext);
+
+  if (status) {
+    status.code = 404;
+  }
+
   return (
-    <View style={styles.container}>
-      <Text>notfound</Text>
+    <View>
+      <Text>Oops! This URL doesn't exist.</Text>
     </View>
   );
 };

@@ -6,6 +6,8 @@ import styles from '../styles';
 import Images from '../../../Assets/Images';
 import Image from '../../Image';
 import Buttons from '../../Buttons';
+import {connect, useDispatch} from 'react-redux';
+import {addFile} from '../../../Redux/Actions/AboutMe/filesActions';
 
 type Props = {
   assetTitle?: string;
@@ -13,11 +15,14 @@ type Props = {
   children?: React.ReactNode;
 };
 
-const CFile = ({data}: any) => {
+const CFile = (props: any) => {
   return (
     <Buttons.BHover
       style={{paddingHorizontal: 10, flexDirection: 'row'}}
-      hoverInStyles={{backgroundColor: '#1E2D3D'}}>
+      hoverInStyles={{backgroundColor: '#1E2D3D'}}
+      onPress={() => {
+        props.dispatch(addFile(props.data.fileName));
+      }}>
       <Image
         source={Images.file_code}
         style={{
@@ -27,9 +32,12 @@ const CFile = ({data}: any) => {
           marginRight: 5,
         }}
       />
-      <Text>{data.fileName}</Text>
+      <Text>{props.data.fileName}</Text>
     </Buttons.BHover>
   );
 };
 
-export default CFile;
+const mapStateToProps = (store: any, props: any) => {
+  return {files: store.files};
+};
+export default connect(mapStateToProps)(CFile);

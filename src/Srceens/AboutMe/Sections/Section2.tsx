@@ -1,4 +1,4 @@
-import React, {useRef, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import {
   View,
   TouchableOpacity,
@@ -9,6 +9,7 @@ import {
   ScrollView,
   Animated,
 } from 'react-native';
+import {connect, useDispatch, useSelector} from 'react-redux';
 import {FontFamily} from '../../../Assets/Fonts';
 import Images from '../../../Assets/Images';
 import Colors from '../../../Assets/Styles/Colors';
@@ -17,11 +18,33 @@ import Collapser from '../../../Components/Collapser';
 import Image from '../../../Components/Image';
 import AppScrollView from '../../../Components/ScrollView';
 import Text from '../../../Components/Text';
+import {
+  removeFile,
+  selectFile,
+} from '../../../Redux/Actions/AboutMe/filesActions';
+import InfosFiles from '../../../Utils/Infos/InfosFiles';
 
-import Bio from '../../../Utils/Infos/bio.json';
-
-const Section2 = () => {
+const Section2 = (props: any) => {
   const layout = useWindowDimensions();
+  //@ts-ignore
+  let fileData = InfosFiles[props.files.selectedFile];
+
+  if (!fileData)
+    return (
+      <View
+        style={[
+          layout.width >= 768 && {
+            flex: 1,
+            width: '42%',
+            borderRightWidth: 1,
+            borderColor: Colors.defaultBorder,
+            alignItems: 'center',
+            justifyContent: 'center',
+          },
+        ]}>
+        <Text>Select a file in personal infos.</Text>
+      </View>
+    );
 
   return (
     <View
@@ -42,49 +65,56 @@ const Section2 = () => {
             borderBottomWidth: 1,
           }}>
           {React.Children.toArray(
-            ['', '', '', '', '', '', '', '', '', '', '', '', '', '', ''].map(
-              (item: any, _index: number) => {
-                return (
-                  <View
-                    style={{
+            props.files?.filesList.map((item: any, _index: number) => {
+              return (
+                <View
+                  style={[
+                    {
                       borderColor: Colors.defaultBorder,
                       borderRightWidth: 1,
-                    }}>
+                    },
+                    props.files.selectedFile === item && {
+                      backgroundColor: Colors.defaultBorder,
+                    },
+                  ]}>
+                  <Buttons.BHover
+                    style={{
+                      paddingHorizontal: 20,
+                      paddingVertical: 10,
+                      flexDirection: 'row',
+                      alignItems: 'center',
+                    }}
+                    onPress={() => {
+                      props.dispatch(selectFile(item));
+                    }}
+                    hoverInStyles={[{backgroundColor: '#1E2D3D'}]}>
+                    <Text style={{color: Colors.VSCodeComment}}>{item}</Text>
                     <Buttons.BHover
                       style={{
-                        paddingHorizontal: 20,
-                        paddingVertical: 10,
-                        flexDirection: 'row',
+                        marginLeft: 20,
+                        height: 15,
+                        width: 15,
+                        justifyContent: 'center',
                         alignItems: 'center',
+                        borderRadius: 2,
                       }}
-                      onPress={() => {}}
+                      onPress={() => {
+                        props.dispatch(removeFile(item));
+                      }}
                       hoverInStyles={[{backgroundColor: '#1E2D3D'}]}>
-                      <Text style={{color: Colors.VSCodeComment}}>bio.md</Text>
-                      <Buttons.BHover
+                      <Image
+                        source={Images.close}
                         style={{
-                          marginLeft: 20,
-                          height: 15,
-                          width: 15,
-                          justifyContent: 'center',
-                          alignItems: 'center',
-                          borderRadius: 2,
+                          height: 8,
+                          width: 8,
+                          tintColor: Colors.VSCodeComment,
                         }}
-                        onPress={() => {}}
-                        hoverInStyles={[{backgroundColor: '#1E2D3D'}]}>
-                        <Image
-                          source={Images.close}
-                          style={{
-                            height: 8,
-                            width: 8,
-                            tintColor: Colors.VSCodeComment,
-                          }}
-                        />
-                      </Buttons.BHover>
+                      />
                     </Buttons.BHover>
-                  </View>
-                );
-              },
-            ),
+                  </Buttons.BHover>
+                </View>
+              );
+            }),
           )}
         </ScrollView>
       </View>
@@ -96,13 +126,15 @@ const Section2 = () => {
             paddingRight: 0,
           }}>
           <View style={{alignItems: 'flex-end', marginRight: 20}}>
-            {[...Array(Bio.length + 2)].map((_item, index) => (
-              <Text
-                style={{color: Colors.VSCodeComment, fontSize: 18}}
-                key={index}>
-                {index + 1}
-              </Text>
-            ))}
+            {React.Children.toArray(
+              [...Array(fileData.length + 2)].map((_item, index) => (
+                <Text
+                  style={{color: Colors.VSCodeComment, fontSize: 18}}
+                  key={index}>
+                  {index + 1}
+                </Text>
+              )),
+            )}
           </View>
           <ScrollView
             horizontal
@@ -112,11 +144,15 @@ const Section2 = () => {
               <Text style={{color: Colors.VSCodeComment, fontSize: 18}}>
                 {'/*'}
               </Text>
-              {Bio.map((item, index) => (
-                <Text style={{color: Colors.VSCodeComment, fontSize: 18}}>
-                  {' *  ' + item}
-                </Text>
-              ))}
+              {fileData.map(
+                (item: string, index: React.Key | null | undefined) => (
+                  <Text
+                    style={{color: Colors.VSCodeComment, fontSize: 18}}
+                    key={index}>
+                    {' *  ' + item}
+                  </Text>
+                ),
+              )}
               <Text style={{color: Colors.VSCodeComment, fontSize: 18}}>
                 {' */'}
               </Text>
@@ -128,4 +164,7 @@ const Section2 = () => {
   );
 };
 
-export default Section2;
+const mapStateToProps = (store: any, props: any) => {
+  return {files: store.files};
+};
+export default connect(mapStateToProps)(Section2);

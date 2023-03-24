@@ -2,13 +2,9 @@ import React, {useState} from 'react';
 import {
   View,
   TouchableOpacity,
-  StyleSheet,
-  TextInput,
-  Modal,
   useWindowDimensions,
   Linking,
 } from 'react-native';
-import {FontFamily} from '../../../Assets/Fonts';
 import Images from '../../../Assets/Images';
 import Colors from '../../../Assets/Styles/Colors';
 import Collapser from '../../../Components/Collapser';
@@ -109,14 +105,5 @@ const Section1 = () => {
     </View>
   );
 };
-
-// const layout = useWindowDimensions();
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#011627',
-  },
-});
 
 export default Section1;

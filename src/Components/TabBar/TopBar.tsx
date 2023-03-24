@@ -1,3 +1,4 @@
+import {Link} from '@react-navigation/native';
 import React, {useState} from 'react';
 import {View, TouchableOpacity, useWindowDimensions} from 'react-native';
 import Images from '../../Assets/Images';
@@ -45,7 +46,9 @@ const TopBar = () => {
               let isCrnt = curntRoute?.includes(item.screen);
               return (
                 <View style={styles('topBar-centerButtonBorder')}>
-                  <TouchableOpacity
+                  <Link to={{screen: item.screen}}>{item.screen}</Link>
+
+                  {/* <TouchableOpacity
                     style={styles('topBar-centerButtonStyle')}
                     onPress={() => {
                       // @ts-ignore
@@ -55,7 +58,7 @@ const TopBar = () => {
                       style={[isCrnt ? {color: 'white'} : {color: '#607B96'}]}>
                       {item.title}
                     </Text>
-                  </TouchableOpacity>
+                  </TouchableOpacity> */}
                   {isCrnt && (
                     <View
                       style={{

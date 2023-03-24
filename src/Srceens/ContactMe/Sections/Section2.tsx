@@ -21,8 +21,9 @@ const Section2 = () => {
       style={[
         layout.width >= 768 && {
           flex: 1,
-          alignSelf: 'center',
           width: '42%',
+          borderRightWidth: 1,
+          borderRightColor: Colors.defaultBorder,
         },
       ]}>
       <View style={{flex: 1, padding: 30, alignContent: 'center'}}>
@@ -86,12 +87,5 @@ const Section2 = () => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#011627',
-  },
-});
 
 export default Section2;

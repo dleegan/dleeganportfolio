@@ -2,17 +2,21 @@ import React from 'react';
 import {useWindowDimensions, View} from 'react-native';
 import NavigationRoot from './src/Navigation';
 import CreateResponsiveStyle from './src/Utils/Functions/ResponsiveStyles';
+import {Provider} from 'react-redux';
+import {store} from './src/Redux/store';
 
 const App = () => {
   const layout = useWindowDimensions();
   const styles = responsiveStyle(layout);
 
   return (
-    <View style={styles('container')}>
-      <View style={styles('terminal')}>
-        <NavigationRoot />
+    <Provider store={store}>
+      <View style={styles('container')}>
+        <View style={styles('terminal')}>
+          <NavigationRoot />
+        </View>
       </View>
-    </View>
+    </Provider>
   );
 };
 

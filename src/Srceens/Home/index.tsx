@@ -12,6 +12,8 @@ import BlurBackground from './Components/BlurBackground';
 
 const Home = () => {
   const [count, setCount] = useState(0);
+  const initialUrl = Linking.getInitialURL();
+  console.log('Home initialUrl=>', initialUrl);
 
   return (
     <View style={styles.container}>
@@ -76,7 +78,7 @@ const Home = () => {
         </View>
       </View>
       <View style={{height: '100%', width: '50%', flex: 1}}>
-        <BlurBackground />
+        {/* <BlurBackground /> */}
       </View>
     </View>
   );
