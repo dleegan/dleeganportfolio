@@ -1,6 +1,10 @@
 {
   "compilerOptions": {
-    "jsx": "react"
+    "strictNullChecks": true,
+    "noUncheckedIndexedAccess": true,
+    "paths": {
+      "app/*": ["./packages/app/*"]
+    }
   },
-  "extends": "@tsconfig/react-native/tsconfig.json"
+  "extends": "expo/tsconfig.base"
 }
