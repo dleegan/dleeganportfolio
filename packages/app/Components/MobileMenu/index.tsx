@@ -4,31 +4,31 @@ import {
   Modal,
   ModalProps,
   TouchableOpacity,
-} from 'react-native';
-import React from 'react';
-import {FontFamily} from '../../Assets/Fonts';
-import Text from '../Text';
-import Colors from '../../Assets/Styles/Colors';
-import Images from '../../Assets/Images';
-import Image from '../Image';
-import * as RootNavigation from '../../Utils/Functions/RootNavigation';
+} from 'react-native'
+import React from 'react'
+import { FontFamily } from '../../Assets/Fonts'
+import Text from '../Text'
+import Colors from '../../Assets/Styles/Colors'
+import Images from '../../Assets/Images'
+import Image from '../Image'
+import * as RootNavigation from '../../Utils/Functions/RootNavigation'
 
 type Props = {
-  action: Function;
-  visible: boolean;
-};
+  action: Function
+  visible: boolean
+}
 
 let Screens = [
-  {title: '_hello', screen: 'Home'},
-  {title: '_about-me', screen: 'About-Me'},
-  {title: '_projects', screen: 'Projects'},
-  {title: '_contact-me', screen: 'Contact-Me'},
-];
+  { title: '_hello', screen: 'Home' },
+  { title: '_about-me', screen: 'About-Me' },
+  { title: '_projects', screen: 'Projects' },
+  { title: '_contact-me', screen: 'Contact-Me' },
+]
 
-const MobileMenu: React.FC<Props> = ({action, visible}: Props) => {
+const MobileMenu: React.FC<Props> = ({ action, visible }: Props) => {
   return (
     <Modal animationType="none" transparent={false} visible={visible}>
-      <View style={{flex: 1, padding: 10, backgroundColor: '#010C15'}}>
+      <View style={{ flex: 1, padding: 10, backgroundColor: '#010C15' }}>
         <View
           style={{
             flex: 1,
@@ -36,7 +36,8 @@ const MobileMenu: React.FC<Props> = ({action, visible}: Props) => {
             borderRadius: 8,
             borderWidth: 1,
             borderColor: Colors.defaultBorder,
-          }}>
+          }}
+        >
           <View
             style={{
               flexDirection: 'row',
@@ -45,8 +46,9 @@ const MobileMenu: React.FC<Props> = ({action, visible}: Props) => {
               padding: 20,
               borderBottomWidth: 1,
               borderColor: '#1E2D3D',
-            }}>
-            <Text style={{color: '#607B96'}}>leegan-dupros</Text>
+            }}
+          >
+            <Text style={{ color: '#607B96' }}>leegan-dupros</Text>
             <TouchableOpacity onPress={() => action()}>
               <Image
                 source={Images.close}
@@ -66,27 +68,30 @@ const MobileMenu: React.FC<Props> = ({action, visible}: Props) => {
                     style={{
                       borderBottomWidth: 1,
                       borderColor: '#1E2D3D',
-                    }}>
+                    }}
+                  >
                     <TouchableOpacity
                       onPress={() => {
                         // @ts-ignore
-                        RootNavigation.navigate(item.screen);
-                        action();
-                      }}>
+                        RootNavigation.navigate(item.screen)
+                        action()
+                      }}
+                    >
                       <Text
                         style={{
                           padding: 20,
-                        }}>
+                        }}
+                      >
                         {item.title}
                       </Text>
                     </TouchableOpacity>
                   </View>
-                );
-              }),
+                )
+              })
             )}
           </View>
 
-          <View style={{flex: 1, justifyContent: 'flex-end'}}>
+          <View style={{ flex: 1, justifyContent: 'flex-end' }}>
             <View
               style={{
                 borderTopWidth: 1,
@@ -94,13 +99,15 @@ const MobileMenu: React.FC<Props> = ({action, visible}: Props) => {
                 flexDirection: 'row',
                 alignItems: 'center',
                 justifyContent: 'space-between',
-              }}>
+              }}
+            >
               <Text
-                style={{paddingHorizontal: 20, color: '#607B96'}}
-                numberOfLines={1}>
+                style={{ paddingHorizontal: 20, color: '#607B96' }}
+                numberOfLines={1}
+              >
                 find me in:
               </Text>
-              <View style={{flexDirection: 'row'}}>
+              <View style={{ flexDirection: 'row' }}>
                 {React.Children.toArray(
                   [Images.twitter, Images.facebook, Images.github].map(
                     (item: any, _index: number) => {
@@ -109,12 +116,14 @@ const MobileMenu: React.FC<Props> = ({action, visible}: Props) => {
                           style={{
                             borderLeftWidth: 1,
                             borderColor: '#1E2D3D',
-                          }}>
+                          }}
+                        >
                           <TouchableOpacity
                             style={{
                               padding: 20,
                             }}
-                            onPress={() => {}}>
+                            onPress={() => {}}
+                          >
                             <Image
                               source={item}
                               style={{
@@ -125,9 +134,9 @@ const MobileMenu: React.FC<Props> = ({action, visible}: Props) => {
                             />
                           </TouchableOpacity>
                         </View>
-                      );
-                    },
-                  ),
+                      )
+                    }
+                  )
                 )}
               </View>
             </View>
@@ -135,7 +144,7 @@ const MobileMenu: React.FC<Props> = ({action, visible}: Props) => {
         </View>
       </View>
     </Modal>
-  );
-};
+  )
+}
 
-export default MobileMenu;
+export default MobileMenu

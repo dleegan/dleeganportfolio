@@ -31,9 +31,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
   -ms-overflow-style: scrollbar;
   background-color: #011627;
-  border-radius: 8px;
-  border: 1px solid;
-  border-color: #1e2d3d;
 }
 nav {
   background-color: #d3d3d3;

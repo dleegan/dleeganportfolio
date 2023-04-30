@@ -1,9 +1,8 @@
 // Based on https://github.com/zeit/next.js/tree/canary/examples/with-react-native-web
 // and https://github.com/expo/expo-cli/blob/main/packages/webpack-config/web-default/index.html
 import NextDocument, { Head, Html, Main, NextScript } from 'next/document'
-import Link from 'next/link'
 import * as React from 'react'
-import { AppRegistry } from 'react-native'
+import { AppRegistry, View } from 'react-native'
 import Navbar from '../components/navBar'
 
 export const style = `
@@ -47,12 +46,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
   -ms-overflow-style: scrollbar;
   background-color: #010C15;
-  border-radius: 8px;
-  border: 1px solid;
-  border-color: #1E2D3D;
-}
-nav {
-  background-color: #D3D3D3;
 }
 `
 
@@ -64,7 +57,10 @@ export async function getInitialProps({ renderPage }) {
     <style key="style-reset" dangerouslySetInnerHTML={{ __html: style }} />,
     getStyleElement(),
   ]
-  return { ...page, styles: React.Children.toArray(styles) }
+  return {
+    ...page,
+    styles: React.Children.toArray(styles),
+  }
 }
 
 export class Document extends NextDocument {
@@ -75,7 +71,7 @@ export class Document extends NextDocument {
           <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         </Head>
         <body>
-          <div
+          {/* <div
             style={{
               margin: 20,
               backgroundColor: '#011627',
@@ -90,12 +86,32 @@ export class Document extends NextDocument {
                 borderStyle: 'solid',
                 borderColor: '#1E2D3D',
               }}
+            > */}
+          <View
+            style={{
+              flex: 1,
+              // margin: 20,
+              backgroundColor: '#011627',
+              padding: 20,
+              height: '100%',
+            }}
+          >
+            <View
+              style={{
+                height: '100%',
+                borderRadius: 8,
+                borderWidth: 1,
+                borderStyle: 'solid',
+                borderColor: '#1E2D3D',
+              }}
             >
               <Navbar />
               <Main />
               <NextScript />
-            </div>
-          </div>
+            </View>
+          </View>
+          {/* </div>
+          </div> */}
         </body>
       </Html>
     )
