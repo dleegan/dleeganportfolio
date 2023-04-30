@@ -6,8 +6,6 @@ import { FontFamily } from '../../Assets/Fonts'
 import Colors from '../../Assets/Styles/Colors'
 import Images from '../../Assets/Images'
 import { responsiveStyle } from './Styles'
-import Ionicons from 'react-native-vector-icons/Ionicons'
-import { SvgXml } from 'react-native-svg'
 
 type Props = {
   title: string
