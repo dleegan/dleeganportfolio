@@ -5,12 +5,14 @@ import { Provider } from 'app/provider'
 import Head from 'next/head'
 import React from 'react'
 import type { SolitoAppProps } from 'solito'
+import Navbar from '../components/navBar'
+import './styles.css'
 
 function MyApp({ Component, pageProps }: SolitoAppProps) {
   return (
     <>
       <Head>
-        <title>Solito Example App</title>
+        <title>dleegan</title>
         <meta
           name="description"
           content="Expo + Next.js with Solito. By Fernando Rojo."

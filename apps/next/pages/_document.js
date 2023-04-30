@@ -1,8 +1,10 @@
 // Based on https://github.com/zeit/next.js/tree/canary/examples/with-react-native-web
 // and https://github.com/expo/expo-cli/blob/main/packages/webpack-config/web-default/index.html
 import NextDocument, { Head, Html, Main, NextScript } from 'next/document'
+import Link from 'next/link'
 import * as React from 'react'
 import { AppRegistry } from 'react-native'
+import Navbar from '../components/navBar'
 
 export const style = `
 /**
@@ -13,10 +15,10 @@ html, body, #__next {
   width: 100%;
   /* To smooth any scrolling behavior */
   -webkit-overflow-scrolling: touch;
-  margin: 0px;
-  padding: 0px;
   /* Allows content to fill the viewport and go beyond the bottom */
   min-height: 100%;
+  margin: 0px;
+  padding: 0px;
 }
 #__next {
   flex-shrink: 0;
@@ -31,16 +33,26 @@ html {
   /* Prevent text size change on orientation change https://gist.github.com/tfausak/2222823#file-ios-8-web-app-html-L138 */
   -webkit-text-size-adjust: 100%;
   height: 100%;
+  background-color: #010C15;
 }
 body {
   display: flex;
+  flex-direction: column;
+  height: 100%;
   /* Allows you to scroll below the viewport; default value is visible */
-  overflow-y: auto;
+  overflow-y: hidden;
   overscroll-behavior-y: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -ms-overflow-style: scrollbar;
+  background-color: #010C15;
+  border-radius: 8px;
+  border: 1px solid;
+  border-color: #1E2D3D;
+}
+nav {
+  background-color: #D3D3D3;
 }
 `
 
@@ -63,8 +75,27 @@ export class Document extends NextDocument {
           <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         </Head>
         <body>
-          <Main />
-          <NextScript />
+          <div
+            style={{
+              margin: 20,
+              backgroundColor: '#011627',
+              height: '100%',
+            }}
+          >
+            <div
+              style={{
+                height: '100%',
+                borderRadius: 8,
+                borderWidth: 1,
+                borderStyle: 'solid',
+                borderColor: '#1E2D3D',
+              }}
+            >
+              <Navbar />
+              <Main />
+              <NextScript />
+            </div>
+          </div>
         </body>
       </Html>
     )
