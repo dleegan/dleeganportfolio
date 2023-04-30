@@ -2,7 +2,7 @@
 // and https://github.com/expo/expo-cli/blob/main/packages/webpack-config/web-default/index.html
 import NextDocument, { Head, Html, Main, NextScript } from 'next/document'
 import * as React from 'react'
-import { AppRegistry, View } from 'react-native'
+import { AppRegistry, Modal, View } from 'react-native'
 import Navbar from '../components/navBar'
 
 export const style = `
@@ -91,7 +91,7 @@ export class Document extends NextDocument {
             style={{
               flex: 1,
               // margin: 20,
-              backgroundColor: '#011627',
+              backgroundColor: '#010C15',
               padding: 20,
               height: '100%',
             }}
@@ -103,6 +103,7 @@ export class Document extends NextDocument {
                 borderWidth: 1,
                 borderStyle: 'solid',
                 borderColor: '#1E2D3D',
+                backgroundColor: '#011627',
               }}
             >
               <Navbar />

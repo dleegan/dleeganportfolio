@@ -61,6 +61,23 @@ export default function Navbar() {
           leegan-dupros
         </Text>
       </View>
+
+      {React.Children.toArray(
+        [
+          { link: '/', title: 'Homes' },
+          { link: '/about-me', title: 'About' },
+          { link: '/projects', title: 'Projects' },
+          { link: '/contact-me', title: 'Contact' },
+        ].map((item, _index) => {
+          return (
+            <View style={{}}>
+              <a href={item.link} style={{ textDecorationLine: 'none' }}>
+                {item.title}
+              </a>
+            </View>
+          )
+        })
+      )}
     </View>
   )
 }
