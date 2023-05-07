@@ -6,8 +6,8 @@
     "@react-navigation/native": "^6.0.11",
     "@react-navigation/native-stack": "^6.5.0",
     "@reduxjs/toolkit": "^1.9.5",
-    "dripsy": "^3.6.0",
     "moti": "latest",
+    "nativewind": "2.0.9",
     "react-redux": "^8.0.5",
     "redux": "^4.2.1",
     "solito": "3.0.0"

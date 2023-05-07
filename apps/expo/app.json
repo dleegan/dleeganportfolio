@@ -1,15 +1,12 @@
 {
   "expo": {
-    "name": "solito-blank",
-    "slug": "solito-blank",
+    "name": "solito-nativewind",
+    "slug": "solito-nativewind",
     "version": "1.0.0",
-    "scheme": "solito-blank",
-    "platforms": [
-      "ios",
-      "android"
-    ],
+    "scheme": "solito-nativewind",
+    "platforms": ["ios", "android"],
     "ios": {
-      "bundleIdentifier": "com.solito.blank"
+      "bundleIdentifier": "com.solito.nativewind"
     }
   }
 }

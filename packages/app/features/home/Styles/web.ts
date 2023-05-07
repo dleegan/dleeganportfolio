@@ -1,4 +1,4 @@
-import {StyleSheet} from 'react-native/types';
+import { StyleSheet } from 'react-native'
 
 export const webStyles = StyleSheet.create({
   container: {
@@ -13,4 +13,4 @@ export const webStyles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#1E2D3D',
   },
-});
+})

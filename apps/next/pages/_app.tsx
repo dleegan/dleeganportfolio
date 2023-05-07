@@ -4,11 +4,11 @@ import 'setimmediate'
 import { Provider } from 'app/provider'
 import Head from 'next/head'
 import React from 'react'
-import type { SolitoAppProps } from 'solito'
-import Navbar from '../components/navBar'
-import './styles.css'
 
-function MyApp({ Component, pageProps }: SolitoAppProps) {
+import '../global.css'
+import { AppProps } from 'next/app'
+
+function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>

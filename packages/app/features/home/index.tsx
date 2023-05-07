@@ -5,6 +5,7 @@ import {
   StyleSheet,
   Linking,
   Image,
+  useWindowDimensions,
 } from 'react-native'
 import { Font, FontFamily } from '../../Assets/Fonts'
 import Images from '../../Assets/Images'
@@ -15,14 +16,18 @@ import AppImage from '../../Components/Image'
 import Text from '../../Components/Text'
 import Links from '../../Utils/Links'
 import BlurBackground from './Components/BlurBackground'
+import { responsiveStyle } from './Styles'
 
 const Home = () => {
   const [count, setCount] = useState(0)
   const initialUrl = Linking.getInitialURL()
   console.log('Home initialUrl=>', initialUrl)
 
+  const layout = useWindowDimensions()
+  const styles = responsiveStyle(layout)
+
   return (
-    <View style={styles.container}>
+    <View style={styles('container')}>
       <View
         style={{
           flex: 1,
@@ -96,14 +101,5 @@ const Home = () => {
     </View>
   )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 30,
-    // backgroundColor: 'red',
-    flexDirection: 'row',
-  },
-})
 
 export default Home
