@@ -4,15 +4,13 @@ import 'setimmediate'
 import { Provider } from 'app/provider'
 import Head from 'next/head'
 import React from 'react'
+import type { SolitoAppProps } from 'solito'
 
-import '../global.css'
-import { AppProps } from 'next/app'
-
-function MyApp({ Component, pageProps }: AppProps) {
+function MyApp({ Component, pageProps }: SolitoAppProps) {
   return (
     <>
       <Head>
-        <title>dleegan</title>
+        <title>Solito Example App</title>
         <meta
           name="description"
           content="Expo + Next.js with Solito. By Fernando Rojo."

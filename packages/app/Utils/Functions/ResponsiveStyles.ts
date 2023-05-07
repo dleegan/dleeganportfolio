@@ -10,6 +10,7 @@ export default function CreateResponsiveStyle<T, U extends Partial<T>>(
   // Return a function that combines wraps web and mobile styles
   return (layout: ScaledSize) =>
     (style: keyof T): StyleProp<any> => {
+      console.log(layout.width)
       if (layout.width < 768 && mobile.hasOwnProperty(style)) {
         return StyleSheet.compose(web[style], mobile[style])
       } else return web[style]

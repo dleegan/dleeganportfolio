@@ -26,6 +26,8 @@ const Home = () => {
   const layout = useWindowDimensions()
   const styles = responsiveStyle(layout)
 
+  console.log(layout)
+
   return (
     <View style={styles('container')}>
       <View
