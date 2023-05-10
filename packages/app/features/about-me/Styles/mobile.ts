@@ -1,9 +1,10 @@
-import {StyleSheet} from 'react-native';
+import Colors from 'app/assets/Styles/Colors'
+import { StyleSheet } from 'react-native'
 
 export const mobileStyles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#011627',
+    backgroundColor: Colors.defaultBG,
     flexDirection: 'column',
   },
   screenTitle: {
@@ -11,4 +12,4 @@ export const mobileStyles = StyleSheet.create({
     padding: 20,
     fontSize: 14,
   },
-});
+})

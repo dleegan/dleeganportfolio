@@ -19,26 +19,28 @@ const Section2 = () => {
   const layout = useWindowDimensions()
 
   return (
-    <ScrollView style={{ flex: 1 }}>
-      <View
-        style={[
-          {
-            marginHorizontal: 'auto',
-            width: '100%',
-            flexDirection: 'row',
-            justifyContent: 'center',
-            flexWrap: 'wrap',
-            padding: 30,
-            columnGap: 30,
-            gap: 30,
-          },
-        ]}
-      >
-        {[...Array(10)].map((_item: any, _index: number) => (
-          <Cards.ItemCard />
-        ))}
-      </View>
-    </ScrollView>
+    <View style={{ flex: 1 }}>
+      <ScrollView style={{}}>
+        <View
+          style={[
+            {
+              marginHorizontal: 'auto',
+              width: '100%',
+              flexDirection: 'row',
+              justifyContent: 'center',
+              flexWrap: 'wrap',
+              padding: 30,
+              columnGap: 30,
+              gap: 30,
+            },
+          ]}
+        >
+          {[...Array(10)].map((_item: any, _index: number) => (
+            <Cards.ItemCard />
+          ))}
+        </View>
+      </ScrollView>
+    </View>
   )
 }
 

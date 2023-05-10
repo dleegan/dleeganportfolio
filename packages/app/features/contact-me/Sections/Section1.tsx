@@ -128,13 +128,4 @@ const Section1 = () => {
   )
 }
 
-// const layout = useWindowDimensions();
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#011627',
-  },
-})
-
 export default Section1

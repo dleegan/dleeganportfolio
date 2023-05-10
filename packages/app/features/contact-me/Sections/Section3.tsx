@@ -24,14 +24,4 @@ const Section3 = () => {
   )
 }
 
-// const layout = useWindowDimensions();
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#011627',
-    // flexDirection: layout.width >= 768 ? 'row' : 'column',
-  },
-})
-
 export default Section3

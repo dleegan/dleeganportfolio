@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native'
-import Colors from '../../../assets/Styles/Colors'
+import Colors from '../../assets/Styles/Colors'
 import Card from '../../Components/Cards'
 
 export function NotFound() {
@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
   },
   terminal: {
     flex: 1,
-    backgroundColor: '#011627',
+    backgroundColor: Colors.defaultBG,
     borderRadius: 8,
     borderWidth: 1,
     borderColor: '#1E2D3D',
