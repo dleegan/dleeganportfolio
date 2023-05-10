@@ -1,4 +1,4 @@
-import { ScaledSize, StyleProp, StyleSheet } from 'react-native'
+import { Dimensions, ScaledSize, StyleProp, StyleSheet } from 'react-native'
 
 export default function CreateResponsiveStyle<T, U extends Partial<T>>(
   webStyles: StyleSheet.NamedStyles<T>,
@@ -10,8 +10,10 @@ export default function CreateResponsiveStyle<T, U extends Partial<T>>(
   // Return a function that combines wraps web and mobile styles
   return (layout: ScaledSize) =>
     (style: keyof T): StyleProp<any> => {
-      console.log(layout.width)
-      if (layout.width < 768 && mobile.hasOwnProperty(style)) {
+      let dime = Dimensions.get('window')
+      console.log('layout=>', layout, dime)
+
+      if (dime.width < 768 && mobile.hasOwnProperty(style)) {
         return StyleSheet.compose(web[style], mobile[style])
       } else return web[style]
     }

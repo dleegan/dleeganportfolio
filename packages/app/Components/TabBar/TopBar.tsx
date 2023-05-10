@@ -1,5 +1,10 @@
 import React, { useState } from 'react'
-import { View, TouchableOpacity, useWindowDimensions } from 'react-native'
+import {
+  View,
+  TouchableOpacity,
+  useWindowDimensions,
+  Dimensions,
+} from 'react-native'
 import Images from '../../assets/Images'
 import Colors from '../../assets/Styles/Colors'
 import * as RootNavigation from '../../Utils/Functions/RootNavigation'
@@ -18,7 +23,10 @@ let Screens = [
 
 const TopBar = () => {
   const layout = useWindowDimensions()
+  console.log('Dimensions:>', Dimensions.get('window'))
+  console.log('layout:>', layout)
   const styles = responsiveStyle(layout)
+
   // const pathname = usePathname()
   // const route = useRouter()
 

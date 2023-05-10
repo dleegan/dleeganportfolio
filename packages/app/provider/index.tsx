@@ -19,7 +19,13 @@ export function Provider({ children }: { children: React.ReactNode }) {
           }}
         >
           <TabBar.TopBar />
-          <Dripsy>{children}</Dripsy>
+          <View
+            style={{
+              flex: 1,
+            }}
+          >
+            <Dripsy>{children}</Dripsy>
+          </View>
           <TabBar.BottomBar />
         </View>
       </View>
