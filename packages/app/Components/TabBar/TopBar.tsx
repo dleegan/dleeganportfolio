@@ -79,12 +79,12 @@ const TopBar = ({ currentPathname }: { currentPathname: any }) => {
               },
             ]}
           >
-            <View
-              style={{
-                padding: 20,
-              }}
-            >
-              <Link href={'/contact-me'}>
+            <Link href={'/contact-me'}>
+              <View
+                style={{
+                  padding: 20,
+                }}
+              >
                 <Text
                   style={[
                     {
@@ -97,20 +97,20 @@ const TopBar = ({ currentPathname }: { currentPathname: any }) => {
                 >
                   _contact-me
                 </Text>
-              </Link>
-            </View>
-            {pathname?.includes('contact-me') && (
-              <View
-                style={{
-                  display: 'flex',
-                  position: 'absolute',
-                  height: 3,
-                  width: '100%',
-                  backgroundColor: '#FEA55F',
-                  bottom: 0,
-                }}
-              />
-            )}
+              </View>
+              {pathname?.includes('contact-me') && (
+                <View
+                  style={{
+                    display: 'flex',
+                    position: 'absolute',
+                    height: 3,
+                    width: '100%',
+                    backgroundColor: '#FEA55F',
+                    bottom: 0,
+                  }}
+                />
+              )}
+            </Link>
           </View>
         </View>
 
