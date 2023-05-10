@@ -12,8 +12,6 @@ export function Provider({
   children: React.ReactNode
   location: any
 }) {
-  console.log(location)
-
   return (
     <ReduxProvider store={store}>
       <View style={{ flex: 1, padding: 20, backgroundColor: '#010C15' }}>
@@ -26,11 +24,7 @@ export function Provider({
             borderWidth: 1,
           }}
         >
-          <TabBar.TopBar currentPathname={location} />
-          <View style={{ flex: 1 }}>
-            <Dripsy>{children}</Dripsy>
-          </View>
-          <TabBar.BottomBar />
+          <Dripsy location={location}>{children}</Dripsy>
         </View>
       </View>
     </ReduxProvider>

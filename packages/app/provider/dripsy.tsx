@@ -1,4 +1,6 @@
+import TabBar from 'app/Components/TabBar'
 import { DripsyProvider, makeTheme } from 'dripsy'
+import { View, useWindowDimensions } from 'react-native'
 
 const theme = makeTheme({
   // https://www.dripsy.xyz/usage/theming/create
@@ -9,14 +11,22 @@ const theme = makeTheme({
   },
 })
 
-export function Dripsy({ children }: { children: React.ReactNode }) {
+export function Dripsy({
+  children,
+  location,
+}: {
+  children: React.ReactNode
+  location: any
+}) {
   return (
     <DripsyProvider
       theme={theme}
       // this disables SSR, since react-native-web doesn't have support for it (yet)
       ssr
     >
-      {children}
+      <TabBar.TopBar currentPathname={location} />
+      <View style={{ flex: 1 }}>{children}</View>
+      <TabBar.BottomBar />
     </DripsyProvider>
   )
 }
