@@ -1,41 +1,24 @@
 import React, { useState } from 'react'
-import {
-  View,
-  TouchableOpacity,
-  useWindowDimensions,
-  Dimensions,
-} from 'react-native'
+import { View, TouchableOpacity, useWindowDimensions } from 'react-native'
 import Images from '../../assets/Images'
 import Colors from '../../assets/Styles/Colors'
-import * as RootNavigation from '../../Utils/Functions/RootNavigation'
 import AppImage from '../Image'
 import MobileMenu from '../MobileMenu'
 import Text from '../Text'
 import { responsiveStyle } from './Styles'
 import { Link } from 'solito/link'
-import { useRouter } from 'solito/router'
-import { useLink } from 'solito/link'
+
 let Screens = [
   { title: '_hello', screen: '/' },
   { title: '_about-me', screen: '/about-me' },
   { title: '_projects', screen: '/projects' },
 ]
 
-const TopBar = () => {
+const TopBar = ({ currentPathname }: { currentPathname: any }) => {
   const layout = useWindowDimensions()
-  console.log('Dimensions:>', Dimensions.get('window'))
-  console.log('layout:>', layout)
   const styles = responsiveStyle(layout)
 
-  // const pathname = usePathname()
-  // const route = useRouter()
-
-  // const linkProps = useLink({
-  //   href,
-  //   as,
-  //   shallow,
-  //   replace
-  // })
+  const pathname = currentPathname
 
   const [modalVisible, setModalVisible] = useState(false)
 
@@ -55,8 +38,7 @@ const TopBar = () => {
         <View style={styles('topBar-centerButtonsContianer')}>
           {React.Children.toArray(
             Screens.map((item: any, _index: number) => {
-              // let isCrnt = pathname === item.screen
-              let isCrnt = true
+              let isCrnt = pathname === item.screen
               return (
                 <View style={styles('topBar-centerButtonBorder')}>
                   <Link href={item.screen}>
@@ -108,16 +90,16 @@ const TopBar = () => {
                     {
                       color: '#607B96',
                     },
-                    // pathname?.includes('contact-me') && {
-                    //   color: 'white',
-                    // },
+                    pathname?.includes('contact-me') && {
+                      color: 'white',
+                    },
                   ]}
                 >
                   _contact-me
                 </Text>
               </Link>
             </View>
-            {/* {pathname?.includes('contact-me') && (
+            {pathname?.includes('contact-me') && (
               <View
                 style={{
                   display: 'flex',
@@ -128,7 +110,7 @@ const TopBar = () => {
                   bottom: 0,
                 }}
               />
-            )} */}
+            )}
           </View>
         </View>
 
