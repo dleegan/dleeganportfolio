@@ -1,0 +1,15 @@
+{
+  "version": "0.0.0",
+  "name": "app",
+  "main": "index.ts",
+  "dependencies": {
+    "@reduxjs/toolkit": "^1.9.5",
+    "dripsy": "^3.6.0",
+    "moti": "latest",
+    "react-native-svg": "13.4.0",
+    "react-redux": "^8.0.5",
+    "redux": "^4.2.1",
+    "solito": "3.0.0"
+  },
+  "sideEffects": false
+}
