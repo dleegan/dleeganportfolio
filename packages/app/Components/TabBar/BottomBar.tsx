@@ -17,11 +17,11 @@ import Twitter from 'app/assets/Images/Icons/social-media/twitter'
 
 let buttonsLinks = [
   {
-    icon: (color) => <Twitter color={color} />,
+    icon: (color: string) => <Twitter color={color} />,
     link: Links.twitter,
   },
   {
-    icon: (color) => <Facebook color={color} />,
+    icon: (color: string) => <Facebook color={color} />,
     link: Links.facebook,
   },
 ]
