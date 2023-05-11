@@ -32,7 +32,7 @@ const AppTextInput: React.FC<Props & TextInputProps> = ({
         style={[
           FontFamily.Medium,
           {
-            color: '#607B96',
+            color: '#FFFFFF',
             paddingVertical: 10,
             paddingHorizontal: 15,
             borderWidth: 1,
@@ -42,6 +42,7 @@ const AppTextInput: React.FC<Props & TextInputProps> = ({
         ]}
         onChangeText={onChangeText}
         value={value}
+        placeholderTextColor={'#607B96'}
         {...props}
       />
     </View>

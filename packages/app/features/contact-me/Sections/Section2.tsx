@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import {
   View,
   TouchableOpacity,
@@ -13,8 +13,10 @@ import Collapser from '../../../Components/Collapser'
 import Text from '../../../Components/Text'
 import AppTextInput from 'app/Components/TextInput'
 import Buttons from 'app/Components/Buttons'
+import { ContactContext } from '..'
 
 const Section2 = () => {
+  let { messageInfo, setMessageInfo } = useContext(ContactContext)
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [message, setMessage] = useState('')
@@ -41,20 +43,38 @@ const Section2 = () => {
         <AppTextInput
           title={'_name'}
           value={name}
-          onChangeText={setName}
+          onChangeText={(txt) => {
+            setName(txt)
+            setMessageInfo({
+              ...messageInfo,
+              name: txt,
+            })
+          }}
           placeholder="John Doe"
         />
         <AppTextInput
           title={'_email'}
           value={email}
-          onChangeText={setEmail}
+          onChangeText={(txt) => {
+            setEmail(txt)
+            setMessageInfo({
+              ...messageInfo,
+              email: txt,
+            })
+          }}
           containerStyle={{ marginTop: 25 }}
           placeholder="johnd@mail.com"
         />
         <AppTextInput
           title={'_message'}
           value={message}
-          onChangeText={setMessage}
+          onChangeText={(txt) => {
+            setMessage(txt)
+            setMessageInfo({
+              ...messageInfo,
+              message: txt,
+            })
+          }}
           multiline
           numberOfLines={6}
           containerStyle={{ marginTop: 25 }}
