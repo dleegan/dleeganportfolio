@@ -12,16 +12,16 @@ import Links from '../../Utils/Links'
 import Image from '../Image'
 import Text from '../Text'
 import { responsiveStyle } from './Styles'
-import Facebook from 'app/assets/Images/Icons/social-media/facebook'
-import Twitter from 'app/assets/Images/Icons/social-media/twitter'
+import SocailMedia from 'app/assets/Images/Icons/social-media/'
+import socialMedia from 'app/assets/Images/Icons/social-media/'
 
 let buttonsLinks = [
   {
-    icon: (color: string) => <Twitter color={color} />,
+    icon: (color: string) => SocailMedia.twitter(color),
     link: Links.twitter,
   },
   {
-    icon: (color: string) => <Facebook color={color} />,
+    icon: (color: string) => SocailMedia.facebook(color),
     link: Links.facebook,
   },
 ]
@@ -50,14 +50,6 @@ const BottomBar = () => {
                     }}
                     onPress={() => Linking.openURL(item.link)}
                   >
-                    {/* <Image
-                      source={item.icon}
-                      style={{
-                        height: 20,
-                        width: 20,
-                        tintColor: '#607B96',
-                      }}
-                    /> */}
                     {item.icon('#607B96')}
                   </TouchableOpacity>
                 </View>
@@ -72,18 +64,12 @@ const BottomBar = () => {
           style={{
             padding: 20,
             flexDirection: 'row',
+            alignItems: 'center',
           }}
           onPress={() => Linking.openURL(Links.github)}
         >
           <Text style={styles('bottomBar-leftText')}>@dleegan</Text>
-          <Image
-            source={Images.github}
-            style={{
-              height: 20,
-              width: 20,
-              tintColor: '#607B96',
-            }}
-          />
+          {socialMedia.github('#607B96')}
         </TouchableOpacity>
       </View>
     </View>
