@@ -17,7 +17,6 @@ import Text from '../../Components/Text'
 import Links from '../../Utils/Links'
 import BlurBackground from './Components/BlurBackground'
 import { responsiveStyle } from './Styles'
-import { SvgTest } from '../../assets/Images/Icons/caret-forward-outline'
 
 const Home = () => {
   const [count, setCount] = useState(0)
@@ -38,7 +37,6 @@ const Home = () => {
         }}
       >
         <View>
-          <SvgTest />
           <Text style={{ fontSize: 18, color: 'white' }}>Hello, I am</Text>
           <Text
             style={{

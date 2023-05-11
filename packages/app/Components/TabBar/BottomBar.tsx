@@ -12,10 +12,18 @@ import Links from '../../Utils/Links'
 import Image from '../Image'
 import Text from '../Text'
 import { responsiveStyle } from './Styles'
+import Facebook from 'app/assets/Images/Icons/social-media/facebook'
+import Twitter from 'app/assets/Images/Icons/social-media/twitter'
 
 let buttonsLinks = [
-  { icon: Images.twitter, link: Links.twitter },
-  { icon: Images.facebook, link: Links.facebook },
+  {
+    icon: (color) => <Twitter color={color} />,
+    link: Links.twitter,
+  },
+  {
+    icon: (color) => <Facebook color={color} />,
+    link: Links.facebook,
+  },
 ]
 
 const BottomBar = () => {
@@ -42,14 +50,15 @@ const BottomBar = () => {
                     }}
                     onPress={() => Linking.openURL(item.link)}
                   >
-                    <Image
+                    {/* <Image
                       source={item.icon}
                       style={{
                         height: 20,
                         width: 20,
                         tintColor: '#607B96',
                       }}
-                    />
+                    /> */}
+                    {item.icon('#607B96')}
                   </TouchableOpacity>
                 </View>
               )
