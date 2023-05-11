@@ -4,6 +4,7 @@
   "main": "index.ts",
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.5",
+    "@tabler/icons": "^2.18.0",
     "dripsy": "^3.6.0",
     "moti": "latest",
     "react-native-svg": "13.4.0",

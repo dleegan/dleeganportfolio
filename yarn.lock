@@ -2892,6 +2892,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@tabler/icons@npm:^2.18.0":
+  version: 2.18.0
+  resolution: "@tabler/icons@npm:2.18.0"
+  checksum: 2257b5f39c570e3e87d1c6d9cfb2a1b6326600d39c42a077c491f584f9769efc9d9c361df1d3099243774d18cdaa5506075595a3fd626c82e812dd2b43700e34
+  languageName: node
+  linkType: hard
+
 "@theme-ui/css@npm:^0.4.0-rc.1":
   version: 0.4.0-rc.13
   resolution: "@theme-ui/css@npm:0.4.0-rc.13"
@@ -3352,6 +3359,7 @@ __metadata:
   resolution: "app@workspace:packages/app"
   dependencies:
     "@reduxjs/toolkit": ^1.9.5
+    "@tabler/icons": ^2.18.0
     dripsy: ^3.6.0
     moti: latest
     react-native-svg: 13.4.0
