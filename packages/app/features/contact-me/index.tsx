@@ -8,7 +8,7 @@ import { responsiveStyle } from './Styles'
 
 const DEFAULT_CONTEXT = {
   messageInfo: { name: '', email: '', message: '' },
-  setMessageInfo: (any) => {},
+  setMessageInfo: (text: any) => {},
 }
 
 export const ContactContext = createContext(DEFAULT_CONTEXT)
