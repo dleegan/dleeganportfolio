@@ -15,6 +15,7 @@ import Collapser from '../../../Components/Collapser'
 import Image from '../../../Components/Image'
 import ItemSelection from '../../../Components/ItemSelection'
 import Text from '../../../Components/Text'
+import Links from 'app/Utils/Links'
 
 let ContactInfo = [
   {
@@ -30,8 +31,14 @@ let ContactInfo = [
 ]
 
 let findMeLinks = [
-  { action: '', title: 'Facebook' },
-  { action: '', title: 'Instagram' },
+  {
+    action: () => Linking.openURL(Links.facebook),
+    title: 'Facebook',
+  },
+  {
+    action: () => Linking.openURL(Links.instagram),
+    title: 'Instagram',
+  },
 ]
 
 const Section1 = () => {
@@ -108,6 +115,7 @@ const Section1 = () => {
               return (
                 <TouchableOpacity
                   style={{ flexDirection: 'row', marginTop: 10 }}
+                  onPress={() => item.action()}
                 >
                   <Image
                     source={Images.link}

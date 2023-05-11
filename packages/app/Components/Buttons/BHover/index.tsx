@@ -1,12 +1,12 @@
-import React, {useState} from 'react';
-import {Pressable, StyleProp, ViewStyle} from 'react-native';
+import React, { useState } from 'react'
+import { Animated, Pressable, StyleProp, ViewStyle } from 'react-native'
 
 type Props = {
-  onPress?: any;
-  children?: React.ReactNode;
-  style?: StyleProp<ViewStyle>;
-  hoverInStyles?: StyleProp<ViewStyle>;
-};
+  onPress?: any
+  children?: React.ReactNode
+  style?: StyleProp<ViewStyle>
+  hoverInStyles?: StyleProp<ViewStyle>
+}
 
 const BHover: React.FC<Props> = ({
   children,
@@ -14,28 +14,60 @@ const BHover: React.FC<Props> = ({
   style,
   hoverInStyles,
 }: Props) => {
-  const [isHover, setIsHover] = useState(false);
-  const [isPress, setIsPress] = useState(false);
+  const [isHover, setIsHover] = useState(false)
+  const [isPress, setIsPress] = useState(false)
+  let pressableOpacity = new Animated.Value(1)
+
+  const doAnimation = () => {
+    Animated.sequence([
+      Animated.timing(pressableOpacity, {
+        toValue: 0,
+        duration: 100,
+        useNativeDriver: true,
+      }),
+      Animated.timing(pressableOpacity, {
+        toValue: 1,
+        duration: 100,
+        useNativeDriver: true,
+      }),
+    ]).start(() => {})
+  }
 
   return (
     <Pressable
-      onPress={onPress}
+      onPress={() => {
+        doAnimation()
+        onPress && onPress()
+      }}
       onHoverIn={() => {
-        setIsHover(true);
+        setIsHover(true)
       }}
       onHoverOut={() => {
-        setIsHover(false);
+        setIsHover(false)
       }}
       onPressIn={() => {
-        setIsPress(true);
+        setIsPress(true)
       }}
       onPressOut={() => {
-        setIsPress(false);
+        setIsPress(false)
       }}
-      style={[style, isHover && hoverInStyles, isPress && {opacity: 0.2}]}>
-      {children}
+    >
+      <Animated.View
+        style={[
+          {
+            opacity: pressableOpacity.interpolate({
+              inputRange: [0, 1],
+              outputRange: [0, 1],
+            }),
+          },
+          style,
+          isHover && hoverInStyles,
+        ]}
+      >
+        {children}
+      </Animated.View>
     </Pressable>
-  );
-};
+  )
+}
 
-export default BHover;
+export default BHover

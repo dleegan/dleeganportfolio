@@ -11,9 +11,13 @@ import { FontFamily } from '../../../assets/Fonts'
 import Colors from '../../../assets/Styles/Colors'
 import Collapser from '../../../Components/Collapser'
 import Text from '../../../Components/Text'
+import AppTextInput from 'app/Components/TextInput'
+import Buttons from 'app/Components/Buttons'
 
 const Section2 = () => {
-  const [text, onChangeText] = useState('')
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [message, setMessage] = useState('')
   const layout = useWindowDimensions()
 
   return (
@@ -27,63 +31,49 @@ const Section2 = () => {
         },
       ]}
     >
-      <View style={{ flex: 1, padding: 30, alignContent: 'center' }}>
-        <View>
-          <Text style={{ marginBottom: 10, color: '#607B96' }}>_name:</Text>
-          <TextInput
-            style={[
-              FontFamily.Medium,
-              {
-                color: '#607B96',
-                paddingVertical: 10,
-                paddingHorizontal: 15,
-                borderWidth: 1,
-                borderRadius: 8,
-                borderColor: '#607B96',
-              },
-            ]}
-            onChangeText={onChangeText}
-            value={text}
-          />
-        </View>
-        <View style={{ marginTop: 25 }}>
-          <Text style={{ marginBottom: 10, color: '#607B96' }}>_email:</Text>
-          <TextInput
-            style={[
-              FontFamily.Medium,
-              {
-                color: '#607B96',
-                paddingVertical: 10,
-                paddingHorizontal: 15,
-                borderWidth: 1,
-                borderRadius: 8,
-                borderColor: '#607B96',
-              },
-            ]}
-            onChangeText={onChangeText}
-            value={text}
-          />
-        </View>
-        <View style={{ marginTop: 25 }}>
-          <Text style={{ marginBottom: 10, color: '#607B96' }}>_message:</Text>
-          <TextInput
-            multiline
-            numberOfLines={6}
-            style={[
-              FontFamily.Medium,
-              {
-                color: '#607B96',
-                paddingVertical: 10,
-                paddingHorizontal: 15,
-                borderWidth: 1,
-                borderRadius: 8,
-                borderColor: '#607B96',
-              },
-            ]}
-            onChangeText={onChangeText}
-            value={text}
-          />
-        </View>
+      <View
+        style={{
+          flex: 1,
+          padding: 30,
+          justifyContent: 'center',
+        }}
+      >
+        <AppTextInput
+          title={'_name'}
+          value={name}
+          onChangeText={setName}
+          placeholder="John Doe"
+        />
+        <AppTextInput
+          title={'_email'}
+          value={email}
+          onChangeText={setEmail}
+          containerStyle={{ marginTop: 25 }}
+          placeholder="johnd@mail.com"
+        />
+        <AppTextInput
+          title={'_message'}
+          value={message}
+          onChangeText={setMessage}
+          multiline
+          numberOfLines={6}
+          containerStyle={{ marginTop: 25 }}
+          placeholder="Hey! Just checked your website and it looks awesome!...."
+        />
+
+        <Buttons.BHover
+          style={{
+            alignSelf: 'flex-end',
+            marginTop: 30,
+            paddingVertical: 10,
+            paddingHorizontal: 14,
+            backgroundColor: '#1C2B3A',
+            borderRadius: 8,
+            alignItems: 'center',
+          }}
+        >
+          <Text>submit-message</Text>
+        </Buttons.BHover>
       </View>
     </View>
   )
