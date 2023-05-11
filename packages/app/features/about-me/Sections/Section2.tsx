@@ -146,7 +146,7 @@ const Section2 = (props: any) => {
           </View>
           <ScrollView
             horizontal
-            style={{ flex: 1, paddingBottom: layout.height * 0.8 }}
+            style={{ flex: 1 }}
             showsHorizontalScrollIndicator={false}
           >
             <View style={{}}>
