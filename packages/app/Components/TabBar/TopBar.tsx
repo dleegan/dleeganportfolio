@@ -7,6 +7,7 @@ import MobileMenu from '../MobileMenu'
 import Text from '../Text'
 import { responsiveStyle } from './Styles'
 import { Link } from 'solito/link'
+import ui from 'app/assets/Images/Icons/ui'
 
 let Screens = [
   { title: '_hello', screen: '/' },
@@ -120,13 +121,7 @@ const TopBar = ({ currentPathname }: { currentPathname: any }) => {
             setModalVisible(true)
           }}
         >
-          <AppImage
-            source={Images.menu}
-            style={{
-              height: 10,
-              width: 12,
-            }}
-          />
+          {ui.menu('red', 12, 10)}
         </TouchableOpacity>
       </View>
       <MobileMenu visible={modalVisible} action={() => closeModal()} />

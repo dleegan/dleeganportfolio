@@ -4,6 +4,7 @@ import {
   Modal,
   ModalProps,
   TouchableOpacity,
+  Linking,
 } from 'react-native'
 import React from 'react'
 import { FontFamily } from '../../assets/Fonts'
@@ -12,6 +13,9 @@ import Colors from '../../assets/Styles/Colors'
 import Images from '../../assets/Images'
 import Image from '../Image'
 import { useRouter } from 'solito/router'
+import Links from 'app/Utils/Links'
+import socialMedia from 'app/assets/Images/Icons/social-media'
+import ui from 'app/assets/Images/Icons/ui'
 
 type Props = {
   action: Function
@@ -25,12 +29,27 @@ let Screens = [
   { title: '_contact-me', screen: '/contact-me' },
 ]
 
+let buttonsLinks = [
+  {
+    icon: (color: string) => socialMedia.twitter(color),
+    link: Links.twitter,
+  },
+  {
+    icon: (color: string) => socialMedia.facebook(color),
+    link: Links.facebook,
+  },
+  {
+    icon: (color: string) => socialMedia.github(color),
+    link: Links.github,
+  },
+]
+
 const MobileMenu: React.FC<Props> = ({ action, visible }: Props) => {
   const { push } = useRouter()
 
   return (
     <Modal animationType="none" transparent={false} visible={visible}>
-      <View style={{ flex: 1, padding: 10, backgroundColor: '#010C15' }}>
+      <View style={{ flex: 1, padding: 20, backgroundColor: '#010C15' }}>
         <View
           style={{
             flex: 1,
@@ -52,13 +71,7 @@ const MobileMenu: React.FC<Props> = ({ action, visible }: Props) => {
           >
             <Text style={{ color: '#607B96' }}>leegan-dupros</Text>
             <TouchableOpacity onPress={() => action()}>
-              <Image
-                source={Images.close}
-                style={{
-                  height: 12,
-                  width: 12,
-                }}
-              />
+              {ui.close('red', 12, 12)}
             </TouchableOpacity>
           </View>
 
@@ -110,34 +123,25 @@ const MobileMenu: React.FC<Props> = ({ action, visible }: Props) => {
               </Text>
               <View style={{ flexDirection: 'row' }}>
                 {React.Children.toArray(
-                  [Images.twitter, Images.facebook, Images.github].map(
-                    (item: any, _index: number) => {
-                      return (
-                        <View
+                  buttonsLinks.map((item: any, _index: number) => {
+                    return (
+                      <View
+                        style={{
+                          borderLeftWidth: 1,
+                          borderColor: '#1E2D3D',
+                        }}
+                      >
+                        <TouchableOpacity
                           style={{
-                            borderLeftWidth: 1,
-                            borderColor: '#1E2D3D',
+                            padding: 20,
                           }}
+                          onPress={() => Linking.openURL(item.link)}
                         >
-                          <TouchableOpacity
-                            style={{
-                              padding: 20,
-                            }}
-                            onPress={() => {}}
-                          >
-                            <Image
-                              source={item}
-                              style={{
-                                height: 20,
-                                width: 20,
-                                tintColor: '#607B96',
-                              }}
-                            />
-                          </TouchableOpacity>
-                        </View>
-                      )
-                    }
-                  )
+                          {item.icon('#607B96')}
+                        </TouchableOpacity>
+                      </View>
+                    )
+                  })
                 )}
               </View>
             </View>

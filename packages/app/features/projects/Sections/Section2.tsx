@@ -13,6 +13,7 @@ import Colors from '../../../assets/Styles/Colors'
 import Cards from '../../../Components/Cards'
 import Collapser from '../../../Components/Collapser'
 import Text from '../../../Components/Text'
+import ui from 'app/assets/Images/Icons/ui'
 
 const Section2 = () => {
   const [text, onChangeText] = useState('')
@@ -35,9 +36,10 @@ const Section2 = () => {
             },
           ]}
         >
-          {[...Array(10)].map((_item: any, _index: number) => (
+          {/* {[...Array(10)].map((_item: any, _index: number) => (
             <Cards.ItemCard />
-          ))}
+          ))} */}
+          <Text style={{}}>De nouveaux projets très bientôt...</Text>
         </View>
       </ScrollView>
     </View>
