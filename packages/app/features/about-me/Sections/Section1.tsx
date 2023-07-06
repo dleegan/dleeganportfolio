@@ -13,6 +13,7 @@ import ItemSelection from '../../../Components/ItemSelection'
 import Text from '../../../Components/Text'
 import TreeCollapser from '../../../Components/TreeCollapser'
 import Links from '../../../Utils/Links'
+import ui from 'app/assets/Images/Icons/ui'
 
 let findMeLinks = [
   {
@@ -90,17 +91,14 @@ const Section1 = () => {
             findMeLinks.map((item: any, _index: number) => {
               return (
                 <TouchableOpacity
-                  style={{ flexDirection: 'row', marginTop: 10 }}
+                  style={{
+                    flexDirection: 'row',
+                    marginTop: 10,
+                    alignItems: 'center',
+                  }}
                   onPress={() => item.action()}
                 >
-                  <Image
-                    source={Images.link}
-                    style={{
-                      height: 15,
-                      width: 15,
-                      tintColor: '#fff',
-                    }}
-                  />
+                  {ui.link('#fff', 15, 14)}
                   <Text style={{ marginLeft: 5 }}>{item.title}</Text>
                 </TouchableOpacity>
               )

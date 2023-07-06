@@ -16,6 +16,7 @@ import Image from '../../../Components/Image'
 import ItemSelection from '../../../Components/ItemSelection'
 import Text from '../../../Components/Text'
 import Links from 'app/Utils/Links'
+import ui from 'app/assets/Images/Icons/ui'
 
 let ContactInfo = [
   {
@@ -106,7 +107,7 @@ const Section1 = () => {
       >
         <View
           style={{
-            paddingHorizontal: 10,
+            paddingHorizontal: 20,
             paddingBottom: 10,
           }}
         >
@@ -114,17 +115,14 @@ const Section1 = () => {
             findMeLinks.map((item: any, _index: number) => {
               return (
                 <TouchableOpacity
-                  style={{ flexDirection: 'row', marginTop: 10 }}
+                  style={{
+                    flexDirection: 'row',
+                    marginTop: 10,
+                    alignItems: 'center',
+                  }}
                   onPress={() => item.action()}
                 >
-                  <Image
-                    source={Images.link}
-                    style={{
-                      height: 15,
-                      width: 15,
-                      tintColor: '#fff',
-                    }}
-                  />
+                  {ui.link('#fff', 15, 14)}
                   <Text style={{ marginLeft: 5 }}>{item.title}</Text>
                 </TouchableOpacity>
               )

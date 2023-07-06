@@ -20,7 +20,9 @@ const Section3 = () => {
   let { messageInfo } = useContext(ContactContext)
 
   return (
-    <View style={[layout.width >= 768 && { width: '42%' }]}>
+    <View
+      style={[layout.width >= 768 ? { width: '42%' } : { display: 'none' }]}
+    >
       <View
         style={{
           flex: 1,

@@ -43,7 +43,9 @@ const Section3 = () => {
   }
 
   return (
-    <View style={[layout.width >= 768 && { width: '42%' }]}>
+    <View
+      style={[layout.width >= 768 ? { width: '42%' } : { display: 'none' }]}
+    >
       <FlatList
         data={userCmd}
         renderItem={({ item }) => (

@@ -33,14 +33,16 @@ const Section2 = (props: any) => {
     return (
       <View
         style={[
-          layout.width >= 768 && {
-            flex: 1,
-            width: '42%',
-            borderRightWidth: 1,
-            borderColor: Colors.defaultBorder,
-            alignItems: 'center',
-            justifyContent: 'center',
-          },
+          layout.width >= 768
+            ? {
+                flex: 1,
+                width: '42%',
+                borderRightWidth: 1,
+                borderColor: Colors.defaultBorder,
+                alignItems: 'center',
+                justifyContent: 'center',
+              }
+            : { flex: 1, alignItems: 'center', justifyContent: 'center' },
         ]}
       >
         <Text>Select a file in personal infos.</Text>

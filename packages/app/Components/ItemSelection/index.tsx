@@ -6,6 +6,7 @@ import { FontFamily } from '../../assets/Fonts'
 import Colors from '../../assets/Styles/Colors'
 import Images from '../../assets/Images'
 import { responsiveStyle } from './Styles'
+import ui from 'app/assets/Images/Icons/ui'
 
 type Props = {
   title: string
@@ -25,12 +26,13 @@ const ItemSelection: React.FC<Props> = ({ title, isSelected }: Props) => {
 
   return (
     <View style={styles('container')}>
-      {/* {isSelected ? (
-        <ChevronDoubleDownIcon size={15} color={'#FFFFFF'} />
+      {isSelected ? (
+        ui['chevron-full']('#fff', 12, 12)
       ) : (
-        <ChevronDoubleRightIcon size={15} color={'#FFFFFF'} />
-      )} */}
-      {/* <SvgXml xml={svgg} /> */}
+        <View style={{ transform: [{ rotate: '-90deg' }] }}>
+          {ui['chevron-full']('#fff', 12, 12)}
+        </View>
+      )}
       <Text style={{ marginLeft: 5 }} numberOfLines={1}>
         {title}
       </Text>

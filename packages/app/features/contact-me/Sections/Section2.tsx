@@ -25,12 +25,14 @@ const Section2 = () => {
   return (
     <View
       style={[
-        layout.width >= 768 && {
-          flex: 1,
-          width: '42%',
-          borderRightWidth: 1,
-          borderRightColor: Colors.defaultBorder,
-        },
+        layout.width >= 768
+          ? {
+              flex: 1,
+              width: '42%',
+              borderRightWidth: 1,
+              borderRightColor: Colors.defaultBorder,
+            }
+          : { display: 'none' },
       ]}
     >
       <View

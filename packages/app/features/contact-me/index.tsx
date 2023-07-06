@@ -32,10 +32,26 @@ const ContactMe = () => {
     <View style={styles('container')}>
       <Text style={styles('screenTitle')}>_contact-me</Text>
       <Section1 />
-      <ContactContext.Provider value={{ messageInfo, setMessageInfo }}>
+
+      <View
+        style={{
+          flex: 1,
+          alignSelf: 'center',
+          justifyContent: 'center',
+        }}
+      >
+        <Text
+          style={{
+            textAlign: 'center',
+          }}
+        >
+          Il est preferable de me contacter par mail pour le moment...
+        </Text>
+      </View>
+      {/* <ContactContext.Provider value={{ messageInfo, setMessageInfo }}>
         <Section2 />
         <Section3 />
-      </ContactContext.Provider>
+      </ContactContext.Provider> */}
     </View>
   )
 }

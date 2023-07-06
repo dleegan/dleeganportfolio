@@ -4,7 +4,7 @@ type Props = {
   height?: number
 }
 
-const Chevron: React.FC<Props> = ({ color, width = 24, height = 24 }) => {
+const ChevronFull: React.FC<Props> = ({ color, width = 24, height = 24 }) => {
   return (
     <svg
       width={width}
@@ -21,4 +21,4 @@ const Chevron: React.FC<Props> = ({ color, width = 24, height = 24 }) => {
   )
 }
 
-export default Chevron
+export default ChevronFull
