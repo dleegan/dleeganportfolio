@@ -70,6 +70,7 @@ const AnimatedText = ({
     >
       <Text
         allowFontScaling={false}
+        selectable={false}
         style={{ color: 'white', fontSize: 30, ...FontFamily.Medium }}
       >
         {'> '}
@@ -79,6 +80,7 @@ const AnimatedText = ({
           return (
             <Animated.Text
               key={index}
+              selectable={false}
               allowFontScaling={false}
               style={{
                 color: 'white',
