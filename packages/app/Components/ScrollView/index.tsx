@@ -73,6 +73,7 @@ const AppScrollView: React.FC<Props> = ({ children }: Props) => {
       </ScrollView>
       <View
         style={{
+          display: layout.width >= 768 ? 'flex' : 'none',
           width: layout.width >= 768 ? 20 : 10,
           borderColor: Colors.defaultBorder,
           borderLeftWidth: 1,

@@ -53,7 +53,6 @@ const Section2 = (props: any) => {
   return (
     <View
       style={[
-        { flex: 1 },
         layout.width >= 768 && {
           flex: 1,
           width: '42%',

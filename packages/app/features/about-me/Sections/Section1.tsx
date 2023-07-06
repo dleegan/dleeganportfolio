@@ -14,6 +14,7 @@ import Text from '../../../Components/Text'
 import TreeCollapser from '../../../Components/TreeCollapser'
 import Links from '../../../Utils/Links'
 import ui from 'app/assets/Images/Icons/ui'
+import { DataSchema } from 'app/Utils/Infos/InfosFiles'
 
 let findMeLinks = [
   {
@@ -23,16 +24,6 @@ let findMeLinks = [
   {
     action: () => Linking.openURL(Links.instagram),
     title: 'Instagram',
-  },
-]
-
-let dataSchema = [
-  { fileName: 'bio' },
-  { fileName: 'education' },
-  { fileName: 'professional-exp' },
-  {
-    folderName: 'interests',
-    content: [{ fileName: 'nothing' }, { fileName: 'stupide-things' }],
   },
 ]
 
@@ -67,7 +58,7 @@ const Section1 = () => {
             borderBottomColor: Colors.defaultBorder,
           }}
         >
-          <TreeCollapser data={dataSchema} />
+          <TreeCollapser data={DataSchema} />
         </View>
       </Collapser>
 

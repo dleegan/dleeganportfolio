@@ -6,6 +6,7 @@ export const mobileStyles = StyleSheet.create({
     flex: 1,
     backgroundColor: Colors.defaultBG,
     flexDirection: 'column',
+    overflow: 'scroll',
   },
   screenTitle: {
     opacity: 1,
