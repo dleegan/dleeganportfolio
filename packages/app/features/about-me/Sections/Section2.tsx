@@ -135,7 +135,12 @@ const Section2 = (props: any) => {
             paddingRight: 0,
           }}
         >
-          <View style={{ alignItems: 'flex-end', marginRight: 20 }}>
+          <View
+            style={[
+              { alignItems: 'flex-end', marginRight: 20 },
+              layout.width < 768 && { display: 'none' },
+            ]}
+          >
             {React.Children.toArray(
               [...Array(fileData.length + 2)].map((_item, index) => (
                 <Text
@@ -152,24 +157,39 @@ const Section2 = (props: any) => {
             style={{ flex: 1 }}
             showsHorizontalScrollIndicator={false}
           >
-            <View style={{}}>
-              <Text style={{ color: Colors.VSCodeComment, fontSize: 18 }}>
-                {'/*'}
-              </Text>
-              {fileData.map(
-                (item: string, index: React.Key | null | undefined) => (
-                  <Text
-                    style={{ color: Colors.VSCodeComment, fontSize: 18 }}
-                    key={index}
-                  >
-                    {' *  ' + item}
-                  </Text>
-                )
-              )}
-              <Text style={{ color: Colors.VSCodeComment, fontSize: 18 }}>
-                {' */'}
-              </Text>
-            </View>
+            {layout.width >= 768 ? (
+              <View style={{}}>
+                <Text style={{ color: Colors.VSCodeComment, fontSize: 18 }}>
+                  {'/*'}
+                </Text>
+                {fileData.map(
+                  (item: string, index: React.Key | null | undefined) => (
+                    <Text
+                      style={{ color: Colors.VSCodeComment, fontSize: 18 }}
+                      key={index}
+                    >
+                      {' *  ' + item}
+                    </Text>
+                  )
+                )}
+                <Text style={{ color: Colors.VSCodeComment, fontSize: 18 }}>
+                  {' */'}
+                </Text>
+              </View>
+            ) : (
+              <View style={{}}>
+                {fileData.map(
+                  (item: string, index: React.Key | null | undefined) => (
+                    <Text
+                      style={{ color: Colors.VSCodeComment, fontSize: 18 }}
+                      key={index}
+                    >
+                      {item}
+                    </Text>
+                  )
+                )}
+              </View>
+            )}
           </ScrollView>
         </View>
       </AppScrollView>
