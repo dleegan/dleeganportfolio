@@ -4,6 +4,36 @@ import NextDocument, { Head, Html, Main, NextScript } from 'next/document'
 import * as React from 'react'
 import { AppRegistry } from 'react-native'
 
+const fonts = [
+  'JetBrainsMonoNL-ThinItalic',
+  'JetBrainsMonoNL-Thin',
+  'JetBrainsMonoNL-SemiBoldItalic',
+  'JetBrainsMonoNL-SemiBold',
+  'JetBrainsMonoNL-Regular',
+  'JetBrainsMonoNL-Italic',
+  'JetBrainsMonoNL-MediumItalic',
+  'JetBrainsMonoNL-LightItalic',
+  'JetBrainsMonoNL-Medium',
+  'JetBrainsMonoNL-Light',
+  'JetBrainsMonoNL-ExtraLightItalic',
+  'JetBrainsMonoNL-ExtraLight',
+  'JetBrainsMonoNL-ExtraBoldItalic',
+  'JetBrainsMonoNL-ExtraBold',
+  'JetBrainsMonoNL-BoldItalic',
+  'JetBrainsMonoNL-Bold',
+]
+
+const customFontCss = fonts
+  .map(
+    (font) => `
+    @font-face {
+        font-family: '${font}';
+        src: url('/font/JetBrainsMono/${font}.ttf');
+    }
+`
+  )
+  .join('\n')
+
 export const style = `
 /**
  * Building on the RNWeb reset:
@@ -42,6 +72,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   -ms-overflow-style: scrollbar;
 }
+${customFontCss}
 `
 
 export async function getInitialProps({ renderPage }) {
