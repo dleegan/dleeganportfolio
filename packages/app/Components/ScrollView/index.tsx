@@ -73,7 +73,7 @@ const AppScrollView: React.FC<Props> = ({ children }: Props) => {
       </ScrollView>
       <View
         style={{
-          width: 20,
+          width: layout.width >= 768 ? 20 : 10,
           borderColor: Colors.defaultBorder,
           borderLeftWidth: 1,
           paddingVertical: 2,
@@ -84,7 +84,7 @@ const AppScrollView: React.FC<Props> = ({ children }: Props) => {
           style={[
             {
               backgroundColor: '#607B96',
-              width: 15,
+              width: '80%',
             },
             {
               height: scrollIndicatorSize,
