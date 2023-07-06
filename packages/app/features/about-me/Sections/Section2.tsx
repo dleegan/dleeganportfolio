@@ -23,6 +23,7 @@ import {
   selectFile,
 } from '../../../Redux/Actions/AboutMe/filesActions'
 import InfosFiles from '../../../Utils/Infos/InfosFiles'
+import ui from 'app/assets/Images/Icons/ui'
 
 const Section2 = (props: any) => {
   const layout = useWindowDimensions()
@@ -52,6 +53,7 @@ const Section2 = (props: any) => {
   return (
     <View
       style={[
+        { flex: 1 },
         layout.width >= 768 && {
           flex: 1,
           width: '42%',
@@ -110,14 +112,7 @@ const Section2 = (props: any) => {
                       }}
                       hoverInStyles={[{ backgroundColor: '#1E2D3D' }]}
                     >
-                      <Image
-                        source={Images.close}
-                        style={{
-                          height: 8,
-                          width: 8,
-                          tintColor: Colors.VSCodeComment,
-                        }}
-                      />
+                      {ui.close('#fff', 8, 8)}
                     </Buttons.BHover>
                   </Buttons.BHover>
                 </View>

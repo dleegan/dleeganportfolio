@@ -19,6 +19,7 @@ const Projects = () => {
           flex: 1,
           alignSelf: 'center',
           justifyContent: 'center',
+          padding: 10,
         }}
       >
         <Text
