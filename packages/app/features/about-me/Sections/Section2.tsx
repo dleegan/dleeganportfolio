@@ -180,10 +180,7 @@ const Section2 = (props: any) => {
               <View style={{}}>
                 {fileData.map(
                   (item: string, index: React.Key | null | undefined) => (
-                    <Text
-                      style={{ color: Colors.VSCodeComment, fontSize: 18 }}
-                      key={index}
-                    >
+                    <Text style={{ color: Colors.VSCodeComment }} key={index}>
                       {item}
                     </Text>
                   )
