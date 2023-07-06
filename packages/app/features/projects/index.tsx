@@ -13,7 +13,23 @@ const Projects = () => {
     <View style={styles('container')}>
       <Text style={styles('screenTitle')}>_projects</Text>
       <Section1 />
-      <Section2 />
+
+      <View
+        style={{
+          flex: 1,
+          alignSelf: 'center',
+          justifyContent: 'center',
+        }}
+      >
+        <Text
+          style={{
+            textAlign: 'center',
+          }}
+        >
+          De nouveaux projets arrivent très bientôt...
+        </Text>
+      </View>
+      {/* <Section2 /> */}
     </View>
   )
 }
