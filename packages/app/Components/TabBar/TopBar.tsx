@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { View, TouchableOpacity, useWindowDimensions } from 'react-native'
 import Images from '../../assets/Images'
 import Colors from '../../assets/Styles/Colors'
@@ -23,9 +23,11 @@ const TopBar = ({ currentPathname }: { currentPathname: any }) => {
 
   const [modalVisible, setModalVisible] = useState(false)
 
-  const closeModal = () => {
+  useEffect(() => {
     setModalVisible(false)
-  }
+
+    return () => {}
+  }, [currentPathname])
 
   return (
     <>
@@ -124,7 +126,11 @@ const TopBar = ({ currentPathname }: { currentPathname: any }) => {
           {ui.menu('red', 12, 10)}
         </TouchableOpacity>
       </View>
-      <MobileMenu visible={modalVisible} action={() => closeModal()} />
+      <MobileMenu
+        visible={modalVisible}
+        action={() => setModalVisible(false)}
+        pathname={pathname}
+      />
     </>
   )
 }

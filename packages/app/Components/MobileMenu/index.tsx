@@ -20,6 +20,7 @@ import ui from 'app/assets/Images/Icons/ui'
 type Props = {
   action: Function
   visible: boolean
+  pathname: string
 }
 
 let Screens = [
@@ -44,7 +45,7 @@ let buttonsLinks = [
   },
 ]
 
-const MobileMenu: React.FC<Props> = ({ action, visible }: Props) => {
+const MobileMenu: React.FC<Props> = ({ action, visible, pathname }: Props) => {
   const { push } = useRouter()
 
   return (
@@ -87,8 +88,7 @@ const MobileMenu: React.FC<Props> = ({ action, visible }: Props) => {
                   >
                     <TouchableOpacity
                       onPress={() => {
-                        push(item.screen)
-                        action()
+                        pathname === item.screen ? action() : push(item.screen)
                       }}
                     >
                       <Text

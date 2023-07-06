@@ -36,10 +36,9 @@ const Section2 = () => {
             },
           ]}
         >
-          {/* {[...Array(10)].map((_item: any, _index: number) => (
+          {[...Array(10)].map((_item: any, _index: number) => (
             <Cards.ItemCard />
-          ))} */}
-          <Text style={{}}>De nouveaux projets très bientôt...</Text>
+          ))}
         </View>
       </ScrollView>
     </View>
