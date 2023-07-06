@@ -8,6 +8,7 @@ import Image from '../../Image'
 import Buttons from '../../Buttons'
 import { connect, useDispatch } from 'react-redux'
 import { addFile } from '../../../Redux/Actions/AboutMe/filesActions'
+import ui from 'app/assets/Images/Icons/ui'
 
 type Props = {
   assetTitle?: string
@@ -18,21 +19,24 @@ type Props = {
 const CFile = (props: any) => {
   return (
     <Buttons.BHover
-      style={{ paddingHorizontal: 10, flexDirection: 'row' }}
+      style={{
+        paddingHorizontal: 20,
+        flexDirection: 'row',
+        paddingVertical: 5,
+        alignItems: 'center',
+      }}
       hoverInStyles={{ backgroundColor: '#1E2D3D' }}
       onPress={() => {
         props.dispatch(addFile(props.data.fileName))
       }}
     >
-      <Image
-        source={Images.file_code}
+      <View
         style={{
-          height: 20,
-          width: 20,
-          tintColor: 'white',
           marginRight: 5,
         }}
-      />
+      >
+        {ui.file('#FFF', 15, 15)}
+      </View>
       <Text>{props.data.fileName}</Text>
     </Buttons.BHover>
   )
