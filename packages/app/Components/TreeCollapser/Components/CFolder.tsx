@@ -22,7 +22,7 @@ const CFolder = ({ data }: any) => {
           style={{
             flexDirection: 'row',
             alignItems: 'center',
-            paddingHorizontal: 10,
+            padding: 5,
           }}
         >
           <View style={{ marginRight: 5 }}>
@@ -38,7 +38,7 @@ const CFolder = ({ data }: any) => {
           style={{
             flexDirection: 'row',
             alignItems: 'center',
-            paddingHorizontal: 10,
+            padding: 5,
           }}
         >
           <View style={{ marginRight: 5, transform: [{ rotate: '90deg' }] }}>

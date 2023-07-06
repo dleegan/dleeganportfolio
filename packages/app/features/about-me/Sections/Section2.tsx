@@ -62,7 +62,13 @@ const Section2 = (props: any) => {
         },
       ]}
     >
-      <View>
+      <View
+        style={
+          layout.width < 768 && {
+            display: 'none',
+          }
+        }
+      >
         <ScrollView
           horizontal
           style={{
