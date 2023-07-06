@@ -45,7 +45,7 @@ const ContactMe = () => {
             textAlign: 'center',
           }}
         >
-          Il est preferable de me contacter par mail pour le moment...
+          Il est préférable de me contacter par mail pour le moment...
         </Text>
       </View>
       {/* <ContactContext.Provider value={{ messageInfo, setMessageInfo }}>
