@@ -37,60 +37,66 @@ const Home = () => {
         }}
       >
         <View>
-          <Text style={{ fontSize: 18, color: 'white' }}>Hello, I am</Text>
-          <Text
-            style={{
-              fontSize: 60,
-              color: 'white',
-              ...FontFamily.Bold,
-            }}
-          >
-            Leegan Dupros
-          </Text>
-          <AnimatedText />
-        </View>
-        <View style={{ marginTop: 90 }}>
-          <Text
-            style={{
-              fontSize: 16,
-              color: '#607B96',
-              ...FontFamily.BoldItalic,
-            }}
-          >
-            // you can also see it on my Github page
-          </Text>
-          <Text style={{ fontSize: 16, ...FontFamily.BoldItalic }}>
-            <Text
-              style={{ color: Colors.VSCodeType, ...FontFamily.BoldItalic }}
-            >
-              const{' '}
-            </Text>
+          <View>
+            <Text style={{ fontSize: 18, color: 'white' }}>Hello, I am</Text>
             <Text
               style={{
-                color: Colors.VSCodeVariableName,
+                fontSize: 60,
+                color: 'white',
+                ...FontFamily.Bold,
+              }}
+            >
+              Leegan Dupros
+            </Text>
+            <AnimatedText />
+          </View>
+          <View style={{ marginTop: 90 }}>
+            <Text
+              style={{
+                // fontSize: 16,
+                color: '#607B96',
                 ...FontFamily.BoldItalic,
               }}
             >
-              githubLink{' '}
+              // you can also see it on my Github page
             </Text>
             <Text
               style={{
-                color: Colors.VSCodeVariableName,
                 ...FontFamily.BoldItalic,
               }}
             >
-              ={' '}
+              <Text
+                style={{ color: Colors.VSCodeType, ...FontFamily.BoldItalic }}
+              >
+                const{' '}
+              </Text>
+              <Text
+                style={{
+                  color: Colors.VSCodeVariableName,
+                  ...FontFamily.BoldItalic,
+                }}
+              >
+                githubLink{' '}
+              </Text>
+              <Text
+                style={{
+                  color: Colors.VSCodeVariableName,
+                  ...FontFamily.BoldItalic,
+                }}
+              >
+                ={' '}
+              </Text>
+              <TextLink
+                onPress={() => Linking.openURL(Links.github)}
+                style={{
+                  color: Colors.VSCodeValueString,
+                  ...FontFamily.BoldItalic,
+                }}
+              >
+                {`"${Links.github}"`}
+              </TextLink>
             </Text>
-            <TextLink
-              onPress={() => Linking.openURL(Links.github)}
-              style={{
-                color: Colors.VSCodeValueString,
-                ...FontFamily.BoldItalic,
-              }}
-            >
-              {`"${Links.github}"`}
-            </TextLink>
-          </Text>
+          </View>
         </View>
       </View>
       {/*
