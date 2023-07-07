@@ -46,7 +46,7 @@ const Section2 = (props: any) => {
             : { flex: 1, alignItems: 'center', justifyContent: 'center' },
         ]}
       >
-        <Text>Select a file in personal infos.</Text>
+        <Text>Sélectionne un fichier dans personal-info.</Text>
       </View>
     )
 
