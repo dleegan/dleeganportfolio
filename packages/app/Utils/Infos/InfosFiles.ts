@@ -1,16 +1,18 @@
 import Bio from './portfolio/bio.json'
 import Formations from './portfolio/formations.json'
-import ProfessionalExp from './portfolio/professionalExp.json'
-import Nothing from './portfolio/nothing.json'
-import StupideThings from './portfolio/stupideThings.json'
+
+import Experience5 from './portfolio/professionalXP/2023-présent.json'
 
 export default {
   bio: Bio,
   formations: Formations,
 
   //expériences-professionnelles files
-  nothing: Nothing,
-  ['stupide-things']: StupideThings,
+  ['2023-présent']: Experience5,
+  // { fileName: '2021-2023' },
+  // { fileName: '2021' },
+  // { fileName: '2020' },
+  // { fileName: '2019-2020' },
 }
 
 export let DataSchema = [
@@ -18,6 +20,12 @@ export let DataSchema = [
   { fileName: 'formations' },
   {
     folderName: 'expériences-professionnelles',
-    content: [{ fileName: 'nothing' }, { fileName: 'stupide-things' }],
+    content: [
+      { fileName: '2023-présent' },
+      { fileName: '2021-2023' },
+      { fileName: '2021' },
+      { fileName: '2020' },
+      { fileName: '2019-2020' },
+    ],
   },
 ]
