@@ -1,21 +1,21 @@
-import Bio from './bio.json'
-import Education from './education.json'
-import ProfessionalExp from './professionalExp.json'
-import Nothing from './nothing.json'
-import StupideThings from './stupideThings.json'
+import Bio from './portfolio/bio.json'
+import Formations from './portfolio/formations.json'
+import ProfessionalExp from './portfolio/professionalExp.json'
+import Nothing from './portfolio/nothing.json'
+import StupideThings from './portfolio/stupideThings.json'
 
 export default {
   bio: Bio,
-  education: Education,
-  ['professional-exp']: ProfessionalExp,
+  formations: Formations,
+
+  //expériences-professionnelles files
   nothing: Nothing,
   ['stupide-things']: StupideThings,
 }
 
 export let DataSchema = [
   { fileName: 'bio' },
-  { fileName: 'education' },
-  { fileName: 'professional-exp' },
+  { fileName: 'formations' },
   {
     folderName: 'expériences-professionnelles',
     content: [{ fileName: 'nothing' }, { fileName: 'stupide-things' }],
