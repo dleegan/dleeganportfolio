@@ -43,7 +43,7 @@ const Section2 = (props: any) => {
                 alignItems: 'center',
                 justifyContent: 'center',
               }
-            : { flex: 1, alignItems: 'center', justifyContent: 'center' },
+            : { flex: 1, alignItems: 'center', justifyContent: 'center', paddingHorizontal: 20},
         ]}
       >
         <Text>Sélectionne un fichier dans personal-info.</Text>
