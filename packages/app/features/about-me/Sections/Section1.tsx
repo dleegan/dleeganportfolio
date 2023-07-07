@@ -25,6 +25,10 @@ let findMeLinks = [
     action: () => Linking.openURL(Links.instagram),
     title: 'Instagram',
   },
+  {
+    action: () => Linking.openURL(Links.twitter),
+    title: 'Twitter',
+  }
 ]
 
 const Section1 = () => {
