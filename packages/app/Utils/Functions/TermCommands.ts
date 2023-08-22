@@ -1,10 +1,39 @@
-let allCommandes = ['ls', '{}'];
-let commandesTab = ['this is a test', '{}'];
+let allCommandes = [
+  {
+    commande: 'ls',
+    function: () => {
+      return 'ls function'
+    },
+  },
+  {
+    commande: 'cd',
+    function: () => {
+      return 'cd function'
+    },
+  },
+  {
+    commande: 'ls',
+    function: () => {
+      return 'ls function'
+    },
+  },
+  {
+    commande: 'help',
+    function: () => {
+      return 'help function\nlsls'
+    },
+  },
+]
 
-export function commandesInterpretor(cmd: string): string {
-  if (allCommandes.includes(cmd)) {
-    let index = allCommandes.findIndex(element => element === cmd);
-    return commandesTab[index];
+type RET = {
+  error?: boolean
+  result: string
+}
+
+export function commandesInterpretor(cmd: string): RET {
+  let index = allCommandes.findIndex((it) => it.commande.includes(cmd))
+  if (index !== -1) {
+    return { result: allCommandes[index]?.function() }
   }
-  return `command not found: ${cmd}`;
+  return { error: true, result: `command not found: ${cmd}` }
 }

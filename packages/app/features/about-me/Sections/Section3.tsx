@@ -20,6 +20,7 @@ type CommandeResult = {
   path: string
   cmd: string
   result: string
+  error?: boolean
 }
 
 const Section3 = () => {
@@ -33,7 +34,7 @@ const Section3 = () => {
       onChangeText('')
       let result = commandesInterpretor(text)
       setUserCmd((prev) => [
-        { path: '~/ git:(main)', cmd: text, result: result },
+        { path: '~/ git:(main)', cmd: text, ...result },
         ...prev,
       ])
       setTimeout(() => {
@@ -49,17 +50,42 @@ const Section3 = () => {
       <FlatList
         data={userCmd}
         renderItem={({ item }) => (
-          <View
-            style={{
-              borderTopWidth: 1,
-              borderColor: Colors.defaultBorder,
-              padding: 10,
-            }}
-          >
-            <Text>{item.path}</Text>
-            <Text>{item.cmd}</Text>
-            <Text>{item.result}</Text>
-          </View>
+          <>
+            {item.error && (
+              <>
+                <View
+                  style={{
+                    position: 'absolute',
+                    height: '100%',
+                    width: 3,
+                    backgroundColor: '#EF8877',
+                  }}
+                />
+                <View
+                  style={{
+                    position: 'absolute',
+                    height: '100%',
+                    width: '100%',
+                    backgroundColor: '#EF8877',
+                    opacity: 0.2,
+                    zIndex: -10,
+                  }}
+                />
+              </>
+            )}
+
+            <View
+              style={{
+                borderTopWidth: 1,
+                borderColor: Colors.defaultBorder,
+                padding: 10,
+              }}
+            >
+              <Text style={{ opacity: 0.4 }}>{item.path}</Text>
+              <Text style={{ marginVertical: 2 }}>{item.cmd}</Text>
+              <Text>{item.result}</Text>
+            </View>
+          </>
         )}
         inverted
         keyExtractor={(_item) => `item-${Math.random()}`}
